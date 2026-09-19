@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" data-mascot="off">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog, Solviqo</title>
+<meta name="description" content="Notes on building software that fits the business, from the studio building it.">
+<meta name="theme-color" content="#05070C">
+<meta property="og:title" content="Blog, Solviqo">
+<meta property="og:description" content="Notes on building software that fits the business, from the studio building it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nisarg2810.github.io/solviqov2/blog.html">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Crect width='240' height='240' rx='48' fill='%2305070C'/%3E%3Cg transform='translate(70,168) rotate(-25) scale(0.62)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%235B6779' stroke-width='18'/%3E%3C/g%3E%3Cg transform='translate(118,128) rotate(-12) scale(0.82)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%239FAABA' stroke-width='18'/%3E%3C/g%3E%3Cg transform='translate(172,72) rotate(2) scale(1.05)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%23E2E8F0' stroke-width='18'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap">
+<link rel="stylesheet" href="assets/site.css?v=25">
+<script>(function(){try{var t=localStorage.getItem('solviqo-theme');if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<script>try{if(!sessionStorage.getItem('sv-seen')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('is-loading');}catch(e){}</script>
+</head>
+<body>
+<div class="loader" aria-hidden="true"><div class="ld-in">
+  <svg class="ld-mark" viewBox="0 0 240 240"><g fill="none" stroke-width="18" stroke-linecap="square">
+    <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline class="ld-c1" points="-27,-30 28,0 -27,30"/></g>
+    <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline class="ld-c2" points="-27,-30 28,0 -27,30"/></g>
+    <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline class="ld-c3" points="-27,-30 28,0 -27,30"/></g></g></svg>
+  <div class="ld-bar"><i></i></div>
+</div></div>
+<a class="skip" href="#main">Skip to content</a>
+<div class="mesh" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="nav-row">
+    <a class="brand" href="index.html" aria-label="Solviqo home">
+      <svg viewBox="0 0 240 240" aria-hidden="true">
+        <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6779" stroke-width="18" stroke-linecap="square"/></g>
+        <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9FAABA" stroke-width="18" stroke-linecap="square"/></g>
+        <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#E2E8F0" stroke-width="18" stroke-linecap="square"/></g>
+      </svg>
+      <span>Solviqo</span>
+    </a>
+    <nav class="nav-inline" aria-label="Main">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="blog.html" class="active" aria-current="page">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <button class="cmdk-btn" id="cmdkBtn" type="button" aria-label="Search the site"></button>
+      <a class="btn btn-primary btn-sm" href="contact.html">Book a call<span class="shine"></span></a>
+      <button id="themeBtn" class="theme-btn" aria-label="Switch to light mode" aria-pressed="false">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M4.2 4.2l1.7 1.7M18.1 18.1l1.7 1.7M2 12h2.4M19.6 12H22M4.2 19.8l1.7-1.7M18.1 5.9l1.7-1.7"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.2A8.2 8.2 0 1 1 9.8 4a6.6 6.6 0 0 0 10.2 10.2z"/></svg>
+      </button>
+      <button id="navToggle" class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span class="ln"></span><span class="ln"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="navOverlay" class="nav-overlay">
+  <div class="wrap">
+    <nav class="nav-list">
+      <a href="index.html"><span class="idx">01</span>Home</a>
+      <a href="about.html"><span class="idx">02</span>About</a>
+      <a href="services.html"><span class="idx">03</span>Services</a>
+      <a href="case-studies.html"><span class="idx">04</span>Case Studies</a>
+      <a href="blog.html" class="active"><span class="idx">05</span>Blog</a>
+      <a href="contact.html"><span class="idx">06</span>Contact</a>
+    </nav>
+    <div class="nav-foot">
+      <a href="mailto:studio@solviqo.com">studio@solviqo.com</a>
+      <span>India · working worldwide</span>
+      <a class="btn btn-primary" href="contact.html">Book a scoping call<span class="shine"></span></a>
+    </div>
+  </div>
+</div>
+
+<main id="main" tabindex="-1">
+
+  <section class="hero" id="listHero" style="padding-bottom:40px">
+    <div class="wrap" style="max-width:840px">
+      <span class="kick rev"><b>01</b> The studio blog</span>
+      <h1 class="chrome-text rev" style="font-size:clamp(34px,4.4vw,60px);margin-top:22px">Notes on building software that fits.</h1>
+      <p class="lede rev">Short, specific pieces on the actual problems we see on scoping calls. No thought leadership, just the pattern and what fixes it.</p>
+    </div>
+  </section>
+
+  <div id="listMarq"><div class="marq" aria-hidden="true"><div class="marq-track"><span>Web apps</span><span>Customer portals</span><span>Internal tools</span><span>Workflow automation</span><span>ERP and CRM integrations</span><span>Approval systems</span><span>New product MVPs</span><span>Live dashboards</span><span>Web apps</span><span>Customer portals</span><span>Internal tools</span><span>Workflow automation</span><span>ERP and CRM integrations</span><span>Approval systems</span><span>New product MVPs</span><span>Live dashboards</span></div></div></div>
+
+  <section class="sec" style="padding-top:70px">
+    <div class="wrap">
+      <div id="postList" class="grid2 stag" hidden></div>
+      <div id="postDetail" hidden></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="index.html" aria-label="Solviqo home"><svg viewBox="0 0 240 240" aria-hidden="true">
+        <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6779" stroke-width="18" stroke-linecap="square"/></g>
+        <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9FAABA" stroke-width="18" stroke-linecap="square"/></g>
+        <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#E2E8F0" stroke-width="18" stroke-linecap="square"/></g>
+      </svg><span>Solviqo</span></a>
+        <p>A custom software studio based in India. Web apps, internal tools, integrations and dashboards, shipped in weeks, not quarters.</p>
+      </div>
+      <div class="foot-col"><h4>Studio</h4><ul>
+        <li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li>
+        <li><a href="case-studies.html">Case Studies</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+      <div class="foot-col"><h4>Services</h4><ul>
+        <li><a href="services.html#web-apps">Web Apps</a></li>
+        <li><a href="services.html#internal-tools">Internal Tools</a></li>
+        <li><a href="services.html#integrations">Integrations</a></li>
+        <li><a href="services.html#dashboards">Dashboards</a></li></ul></div>
+      <div class="foot-col"><h4>Contact</h4><ul>
+        <li><a href="mailto:studio@solviqo.com">studio@solviqo.com</a></li>
+        <li><a href="contact.html">Book a call</a></li>
+        <li><span style="color:var(--t2);font-size:14.5px">India (IST)</span></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <p>SOLVIQO STUDIO 2026 / CUSTOM SOFTWARE, BUILT IN INDIA FOR TEAMS ANYWHERE</p>
+      <p>ARTWORK ON THIS SITE IS GENERATED FROM THE BRAND SYSTEM</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=14"></script>
+<script src="assets/features.js?v=8"></script>
+<script src="assets/vsl.js?v=1"></script>
+</body>
+</html>

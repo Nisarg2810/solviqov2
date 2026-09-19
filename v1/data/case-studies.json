@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "fleet-compliance-uae",
+    "industry": "Logistics & Fleet",
+    "title": "Replacing a two day paper reconciliation with a same day inspection app",
+    "summary": "A UAE logistics operator running several hundred vehicles was losing two coordinator days a week turning paper checklists into a spreadsheet nobody fully trusted.",
+    "tags": ["Fleet", "Oracle Fusion", "Ops App Sprint"],
+    "stats": [
+      { "v": "600+", "l": "vehicles in fleet" },
+      { "v": "3 weeks", "l": "scope to live" },
+      { "v": "2 days/wk", "l": "coordinator time reclaimed" }
+    ],
+    "challenge": "Inspections happened on paper at the yard, then got re-typed into a shared spreadsheet by a single coordinator, usually two to three days after the inspection actually happened. Failed vehicles sometimes stayed in rotation because the failure had not been transcribed yet, and the weekly fleet report to regional management was, by the time anyone read it, several days out of date.",
+    "approach": "We scoped a single workflow: a mobile first inspection app for drivers and yard supervisors, with role based sign off and an automatic flag for any vehicle that fails a safety critical item. The app writes directly into the client's existing Oracle Fusion asset records through its API, so fleet status stays current in the system the finance and maintenance teams already use for reporting.",
+    "outcome": "Inspections are now logged the moment they happen, not two days later. The coordinator who previously spent two full days a week on data entry now spends that time on the maintenance backlog the data was supposed to inform in the first place. The fleet manager sees vehicle status live instead of waiting for Monday's report."
+  },
+  {
+    "slug": "hsse-observation-tracker",
+    "industry": "Construction & Contracting",
+    "title": "Turning a shared spreadsheet into an enforced HSSE observation workflow",
+    "summary": "A mid size GCC contractor was logging safety observations across a dozen active sites in a single file, edited by whoever reached it first.",
+    "tags": ["HSSE", "Oracle Fusion", "Ops App Sprint"],
+    "stats": [
+      { "v": "12 sites", "l": "consolidated into one system" },
+      { "v": "2.5 weeks", "l": "scope to live" },
+      { "v": "100%", "l": "observations with an enforced closure step" }
+    ],
+    "challenge": "Observations were logged in a shared file with no ownership model. Entries were sometimes overwritten by simultaneous edits, closure was tracked informally if at all, and the regional HSSE manager could not produce a reliable open incident count without manually reconciling twelve site tabs.",
+    "approach": "We built a role based observation tracker: site HSSE officers log and photograph an observation on site, it routes automatically to the right owner for action, and it cannot be marked closed without a recorded resolution. The tracker reports into the same Oracle Fusion environment the compliance team already uses, so audit exports pull from one source instead of twelve.",
+    "outcome": "Every observation now has an enforced closure trail, visible to the regional manager without a single manual reconciliation. The most recent external audit was the first in three cycles where the closure evidence was produced from the system directly, instead of assembled by hand the week before the auditor arrived."
+  },
+  {
+    "slug": "accommodation-tracker",
+    "industry": "Facilities Management",
+    "title": "One accommodation tracker instead of five conflicting spreadsheets",
+    "summary": "A facilities management company housing over a thousand workers across multiple accommodation sites had five different people maintaining five different versions of room occupancy.",
+    "tags": ["Accommodation", "Facilities Management", "Ops App Sprint"],
+    "stats": [
+      { "v": "1,400+", "l": "beds tracked" },
+      { "v": "5 to 1", "l": "spreadsheets consolidated" },
+      { "v": "2 weeks", "l": "scope to live" }
+    ],
+    "challenge": "Room assignments were tracked by site administrators in separate spreadsheets, updated on different schedules, with no single source of truth. Double booked rooms, workers listed as housed at two sites simultaneously, and stale vacancy counts were routine, discovered only when someone physically checked a room.",
+    "approach": "We built a single accommodation tracker with one occupancy record per bed, live across every site, with role based edit access so a site administrator can only update their own location while a regional manager sees the full picture. Assignment and vacate actions are logged with a timestamp and the administrator's name attached.",
+    "outcome": "Double booking has not recurred since go live. Vacancy reporting that used to take a full afternoon of cross referencing five files now takes the time it takes to open one screen. Site administrators update the tracker directly instead of emailing updates to a central spreadsheet owner."
+  },
+  {
+    "slug": "violation-tracker-oil-gas",
+    "industry": "Oil & Gas",
+    "title": "A violation tracker that closed the gap between the field and Oracle Fusion",
+    "summary": "An oil and gas operator was recording contractor violations on paper forms, then re-entering summaries into Oracle Fusion weeks later, if at all.",
+    "tags": ["Compliance", "Oracle Fusion", "Oracle Fusion Bridge"],
+    "stats": [
+      { "v": "4 weeks", "l": "average reporting delay eliminated" },
+      { "v": "3 weeks", "l": "scope to live" },
+      { "v": "1", "l": "system of record, not two" }
+    ],
+    "challenge": "Field supervisors recorded contractor violations on paper, which were batched and manually entered into Oracle Fusion by a compliance officer, often four weeks after the fact. By the time a violation appeared in the system most people used for reporting, the context behind it was already fading, and repeat offenders were hard to spot without cross referencing paper files.",
+    "approach": "We built a lightweight violation logging app for field supervisors that writes directly into Oracle Fusion through its API the moment a violation is recorded. No second entry step, no paper intermediary. Repeat violations by the same contractor are flagged automatically at the point of entry.",
+    "outcome": "The four week gap between an incident and its appearance in the system of record is gone. Compliance reporting now reflects what happened this week, not last month, and the flag for repeat contractor violations has already surfaced two patterns that would previously have gone unnoticed until a formal review."
+  }
+]

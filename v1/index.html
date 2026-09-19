@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solviqo · Operational apps for industrial teams</title>
+<meta name="description" content="Solviqo builds the fleet, HSSE, compliance and approvals apps your ERP will not, live in two to four weeks and wired into Oracle Fusion or whatever you already run.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Crect width='240' height='240' rx='48' fill='%230D1117'/%3E%3Cg transform='translate(70,168) rotate(-25) scale(0.62)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%235B6474' stroke-width='18'/%3E%3C/g%3E%3Cg transform='translate(118,128) rotate(-12) scale(0.82)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%239AA4B2' stroke-width='18'/%3E%3C/g%3E%3Cg transform='translate(172,72) rotate(2) scale(1.05)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%23F4F6FA' stroke-width='18'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<div id="introLoader" class="intro-loader">
+  <svg viewBox="0 0 240 240" class="intro-mark" aria-hidden="true">
+    <g class="seg seg-1"><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g></g>
+    <g class="seg seg-2"><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g></g>
+    <g class="seg seg-3"><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChromeLoader)" stroke-width="18" stroke-linecap="square"/></g></g>
+  </svg>
+  <div class="intro-label">Solviqo &middot; calibrating</div>
+</div>
+
+<div id="scrollHud" class="scroll-hud">
+  <span class="cur">01</span>
+  <span class="bar"><i></i></span>
+  <span class="total">06</span>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><linearGradient id="gradChromeLoader" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#B9C6DA"/><stop offset="45%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#8CA0BE"/></linearGradient></defs>
+</svg>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gradChrome" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B9C6DA"/>
+      <stop offset="45%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#8CA0BE"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 240 240" class="brand-mark" aria-hidden="true">
+        <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g>
+        <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g>
+        <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g>
+      </svg>
+      <span class="brand-word">Solviqo</span>
+    </a>
+    <div class="nav-right">
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a call</a>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="ln"></span><span class="ln"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="navLinks" class="nav-links">
+  <div class="container nav-links-inner">
+    <nav>
+      <a href="index.html" class="active"><span class="idx">01</span>Home</a>
+      <a href="about.html"><span class="idx">02</span>About</a>
+      <a href="services.html"><span class="idx">03</span>Services</a>
+      <a href="case-studies.html"><span class="idx">04</span>Case Studies</a>
+      <a href="blog.html"><span class="idx">05</span>Blog</a>
+      <a href="contact.html"><span class="idx">06</span>Contact</a>
+    </nav>
+    <div class="nav-foot">
+      <a href="mailto:studio@solviqo.com">studio@solviqo.com</a>
+      <a href="contact.html" class="btn btn-primary">Book a call</a>
+      <span>Dubai, UAE</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" data-hud="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Operational software for industrial teams</span>
+        <h1>Your ERP won't build this. We will, in four weeks or less.</h1>
+        <p class="lede">Solviqo builds the fleet, HSSE, compliance and approvals apps your operations team actually needs, wired directly into Oracle Fusion or whatever ERP you already run. No six month ticket queue. No more spreadsheets holding your operation together.</p>
+        <div class="hero-cta">
+          <a href="contact.html" class="btn btn-primary btn-lg">Book a scoping call</a>
+          <a href="services.html" class="btn btn-ghost btn-lg">See how it works</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <svg viewBox="0 0 240 240" class="mark-hero" aria-hidden="true">
+          <path d="M70,168 Q120,95 172,72" fill="none" stroke="#5B6474" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.35"/>
+          <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g>
+          <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g>
+          <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES STRIP -->
+  <section class="section tight" style="padding-top:0;" data-hud="industries">
+    <div class="container">
+      <p class="eyebrow muted" style="margin-bottom:22px;">Built for people who run real operations</p>
+      <div class="grid-4">
+        <div class="tag" style="justify-content:center;padding:14px;font-size:12.5px;">Construction &amp; Contracting</div>
+        <div class="tag" style="justify-content:center;padding:14px;font-size:12.5px;">Facilities Management</div>
+        <div class="tag" style="justify-content:center;padding:14px;font-size:12.5px;">Logistics &amp; Fleet</div>
+        <div class="tag" style="justify-content:center;padding:14px;font-size:12.5px;">Oil &amp; Gas</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE GAP -->
+  <section class="section section-rel" data-hud="gap">
+    <span class="ghost-num">01</span>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">The gap</span>
+        <h2>Somewhere between your ERP and your ops team, the work falls through.</h2>
+        <p>Oracle Fusion can do almost anything, eventually. Your HSSE manager needs a violation logged today. So the real operation runs on spreadsheets, WhatsApp threads and someone's memory, while the system of record collects dust.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <span class="num">01</span>
+          <h3>The six month queue</h3>
+          <p>Your Oracle Fusion partner has a backlog priced around module rollouts. A one screen change request sits behind bigger contracts for months, not because anyone is careless, because that is how the incentives are built.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></div>
+          <span class="num">02</span>
+          <h3>The spreadsheet operation</h3>
+          <p>Violations, inspections, room assignments, all tracked in files that live on one laptop and break the moment two people edit them at once. Nobody trusts the numbers, so everybody double checks them by hand.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <span class="num">03</span>
+          <h3>The invisible approval</h3>
+          <p>Sign off happens over email and WhatsApp. Nobody can say, with certainty and a timestamp, what was approved, by whom, and under what version of the request.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section-rel" style="background:var(--ink-900);" data-hud="how">
+    <span class="ghost-num">02</span>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2>From spreadsheet to shipped app in four weeks.</h2>
+        <p>One workflow at a time, scoped tightly enough that the timeline actually holds.</p>
+      </div>
+      <div class="grid-4">
+        <div class="card" style="background:var(--ink-800);">
+          <span class="num">STEP 01</span>
+          <h3>Scope</h3>
+          <p>A twenty minute call. We map the one workflow costing you the most time and agree exactly what a working app looks like, in writing.</p>
+        </div>
+        <div class="card" style="background:var(--ink-800);">
+          <span class="num">STEP 02</span>
+          <h3>Build</h3>
+          <p>One to three weeks. Database, workflow and role based access, wired directly into your Oracle Fusion instance or ERP of choice.</p>
+        </div>
+        <div class="card" style="background:var(--ink-800);">
+          <span class="num">STEP 03</span>
+          <h3>Deploy</h3>
+          <p>Your team starts using it. We stay on call for the first week live, then hand over documentation and get out of your way.</p>
+        </div>
+        <div class="card" style="background:var(--ink-800);">
+          <span class="num">STEP 04</span>
+          <h3>Extend</h3>
+          <p>Most clients come back for the next workflow once the first one proves out. No retainer required to make that true.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section section-rel" data-hud="services">
+    <span class="ghost-num">03</span>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Services</span>
+        <h2>Three ways to work with us.</h2>
+        <p>Pick the one that matches the problem you actually have.</p>
+      </div>
+      <div class="grid-3">
+        <a href="services.html#ops-app-sprint" class="card">
+          <span class="tag amber">2 to 3 weeks</span>
+          <h3>Ops App Sprint</h3>
+          <p>One workflow, a violation tracker, a fleet log, an accommodation tracker, built and deployed with database, workflow and role based access. Fixed price.</p>
+          <span class="card-link">See what's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a href="services.html#oracle-fusion-bridge" class="card">
+          <span class="tag amber">2 to 4 weeks</span>
+          <h3>Oracle Fusion Bridge</h3>
+          <p>The one process your ERP won't handle natively, built as a lightweight app that reads and writes to Oracle Fusion through its API.</p>
+          <span class="card-link">See what's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a href="services.html#dashboard-sprint" class="card">
+          <span class="tag amber">1 to 2 weeks</span>
+          <h3>Dashboard Sprint</h3>
+          <p>Your existing SQL or spreadsheet data, turned into one live reporting dashboard. No more manually compiling a report before every meeting.</p>
+          <span class="card-link">See what's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY TEASER -->
+  <section class="section section-rel" style="background:var(--ink-900);" data-hud="work">
+    <span class="ghost-num">04</span>
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Recent work</span>
+        <h2>What this actually looks like, deployed.</h2>
+        <p>A sample of engagements. Client names are withheld by agreement, the scope and outcomes are exactly as delivered.</p>
+      </div>
+      <div id="homeCaseTeaser" class="grid-2"></div>
+      <div style="margin-top:32px;"><a href="case-studies.html" class="btn btn-ghost">View all case studies</a></div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section tight" data-hud="stats">
+    <div class="container">
+      <div class="stat-band">
+        <div class="stat"><div class="v">2 to 4 weeks</div><div class="l">Typical time from scoping call to a live app</div></div>
+        <div class="stat"><div class="v">1 workflow</div><div class="l">Scoped per sprint, on purpose, so the timeline holds</div></div>
+        <div class="stat"><div class="v">Your stack</div><div class="l">Built on Oracle Fusion, SQL, or whatever you already run</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG TEASER -->
+  <section class="section" data-hud="blog">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">From the studio</span>
+        <h2>Notes on operations, ERP gaps and shipping fast.</h2>
+      </div>
+      <div id="homePostTeaser" class="grid-2"></div>
+      <div style="margin-top:32px;"><a href="blog.html" class="btn btn-ghost">Read the blog</a></div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section" style="border-bottom:none;background:var(--ink-900);" data-hud="cta">
+    <div class="container center" style="max-width:640px;margin:0 auto;">
+      <h2 style="font-size:34px;">Stop waiting on the ticket.</h2>
+      <p class="muted" style="margin-top:16px;font-size:16.5px;">Twenty minutes is enough to know if this is a fit. No proposal, no obligation, just a straight answer.</p>
+      <div style="margin-top:28px;"><a href="contact.html" class="btn btn-primary btn-lg">Book a call</a></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <svg viewBox="0 0 240 240" class="brand-mark" aria-hidden="true">
+            <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g>
+            <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g>
+            <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g>
+          </svg>
+          <span class="brand-word">Solviqo</span>
+        </a>
+        <p>Operational apps for industrial teams across the Gulf. Fleet, HSSE, compliance and approvals, live in weeks, not quarters.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#ops-app-sprint">Ops App Sprint</a></li>
+          <li><a href="services.html#oracle-fusion-bridge">Oracle Fusion Bridge</a></li>
+          <li><a href="services.html#dashboard-sprint">Dashboard Sprint</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:studio@solviqo.com">studio@solviqo.com</a></li>
+          <li><a href="contact.html">Book a call</a></li>
+          <li><span class="muted">Dubai, UAE</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>SOLVIQO STUDIO &copy; 2026. BUILT ON THE SAME PRINCIPLE AS EVERYTHING WE SHIP.</p>
+      <p>OPERATIONAL SOFTWARE, GULF / MIDDLE EAST</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

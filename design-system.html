@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solviqo Depth System</title>
+<meta name="description" content="The visual system behind Solviqo: light, depth, colour ramps, materials, motion and generated imagery.">
+<meta name="theme-color" content="#05070C">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Crect width='240' height='240' rx='48' fill='%2305070C'/%3E%3Cg transform='translate(70,168) rotate(-25) scale(0.62)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%235B6779' stroke-width='18'/%3E%3C/g%3E%3Cg transform='translate(118,128) rotate(-12) scale(0.82)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%239FAABA' stroke-width='18'/%3E%3C/g%3E%3Cg transform='translate(172,72) rotate(2) scale(1.05)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%23E2E8F0' stroke-width='18'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  /* ---- ink ramp, cool near black to slate ---- */
+  --ink-950:#05070C; --ink-900:#090C14; --ink-850:#0D111B; --ink-800:#121722;
+  --ink-700:#1A2130; --ink-600:#252E40; --ink-500:#313B50;
+
+  /* ---- steel ramp, the chrome family from the mark ---- */
+  --steel-700:#2C3442; --steel-600:#3D4757; --steel-500:#5B6779; --steel-400:#7C8899;
+  --steel-300:#9FAABA; --steel-200:#C3CCD9; --steel-100:#E2E8F0; --steel-50:#F2F5F9;
+
+  /* ---- amber, the warm accent. Action, live, now ---- */
+  --amber-700:#8F4E06; --amber-600:#B8660A; --amber-500:#E8890C;
+  --amber-400:#FFA733; --amber-300:#FFC06B; --amber-200:#FFD9A3;
+
+  /* ---- signal blue, the cool accent. Data, links, state ---- */
+  --signal-700:#2E4FD1; --signal-600:#3B63F0; --signal-500:#4C7DFF;
+  --signal-400:#7FA0FF; --signal-300:#A9C0FF;
+
+  /* ---- semantic ---- */
+  --ok-500:#34D399; --warn-500:#FBBF24; --bad-500:#F87171;
+
+  /* ---- text ---- */
+  --t1:#F2F5F9; --t2:#9FAABA; --t3:#5B6779;
+
+  /* ---- hairlines, light from top left ---- */
+  --line:rgba(226,232,240,.08);
+  --line-2:rgba(226,232,240,.16);
+  --edge-top:rgba(255,255,255,.10);
+
+  /* ---- elevation ladder. Ambient + direct + inner top light ---- */
+  --e1:0 1px 2px rgba(0,0,0,.45), inset 0 1px 0 var(--edge-top);
+  --e2:0 4px 14px -3px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.4), inset 0 1px 0 var(--edge-top);
+  --e3:0 14px 36px -10px rgba(0,0,0,.65), 0 3px 8px rgba(0,0,0,.4), inset 0 1px 0 var(--edge-top);
+  --e4:0 32px 72px -20px rgba(0,0,0,.75), 0 6px 16px rgba(0,0,0,.45), inset 0 1px 0 var(--edge-top);
+  --glow-amber:0 0 0 1px rgba(232,137,12,.28), 0 8px 32px -6px rgba(232,137,12,.35);
+  --glow-signal:0 0 0 1px rgba(76,125,255,.28), 0 8px 32px -6px rgba(76,125,255,.35);
+
+  /* ---- gradients ---- */
+  --grad-sheen:linear-gradient(145deg, rgba(255,255,255,.13) 0%, rgba(255,255,255,.02) 38%, rgba(255,255,255,0) 60%);
+  --grad-chrome:linear-gradient(145deg,#E2E8F0 0%,#9FAABA 38%,#5B6779 62%,#C3CCD9 100%);
+  --grad-amber:linear-gradient(140deg,#FFC06B 0%,#E8890C 55%,#B8660A 100%);
+  --grad-signal:linear-gradient(140deg,#A9C0FF 0%,#4C7DFF 55%,#2E4FD1 100%);
+  --grad-panel:linear-gradient(168deg,#121722 0%,#0B0F18 100%);
+  --grad-text:linear-gradient(120deg,#F2F5F9 0%,#C3CCD9 45%,#7C8899 100%);
+
+  /* ---- type ---- */
+  --f-display:"Unbounded",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --f-body:"IBM Plex Sans",-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+
+  --r-sm:8px; --r-md:14px; --r-lg:22px; --r-full:999px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html,body{overflow-x:hidden;overflow-x:clip}
+body{
+  margin:0; font-family:var(--f-body); color:var(--t1); font-size:16px; line-height:1.65;
+  background:var(--ink-950);
+  -webkit-font-smoothing:antialiased;
+}
+/* the mesh field, one environment behind everything */
+.mesh{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 70% 50% at 12% 0%, rgba(76,125,255,.16), transparent 60%),
+    radial-gradient(ellipse 60% 45% at 88% 12%, rgba(232,137,12,.11), transparent 60%),
+    radial-gradient(ellipse 90% 60% at 50% 100%, rgba(37,46,64,.5), transparent 70%);
+  animation:meshDrift 48s var(--ease) -12s infinite alternate}
+@keyframes meshDrift{from{transform:translate3d(-1.5%,0,0) scale(1)}to{transform:translate3d(1.5%,1%,0) scale(1.07)}}
+/* the grain, what stops a dark page reading as plastic */
+.grain{position:fixed;inset:-50%;z-index:1;pointer-events:none;opacity:.32;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grainShift 8s steps(6) infinite}
+@keyframes grainShift{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-2%)}80%{transform:translate(3%,1%)}100%{transform:translate(0,0)}}
+
+.wrap{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:0 40px}
+@media(max-width:760px){.wrap{padding:0 20px}}
+
+h1,h2,h3,h4{margin:0;font-family:var(--f-display);font-weight:700;letter-spacing:-.025em;line-height:1.04}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+code{font-family:var(--f-mono);font-size:.86em;color:var(--steel-300)}
+
+.kick{font-family:var(--f-mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--t3);display:flex;align-items:center;gap:10px}
+.kick b{color:var(--amber-500);font-weight:400}
+.kick::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line-2),transparent)}
+
+/* ---------- cover ---------- */
+.cover{padding:120px 0 90px}
+.cover .mark{display:flex;align-items:center;gap:14px;margin-bottom:38px}
+.cover .mark svg{width:42px;height:42px;overflow:visible;filter:drop-shadow(0 6px 18px rgba(0,0,0,.6))}
+.cover .mark span{font-family:var(--f-display);font-weight:700;font-size:21px}
+.cover h1{font-size:clamp(44px,7.4vw,104px);margin-bottom:26px;
+  background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cover .lede{font-size:19px;color:var(--t2);max-width:60ch}
+.cover .meta{display:flex;gap:40px;flex-wrap:wrap;margin-top:48px;padding-top:26px;border-top:1px solid var(--line)}
+.cover .meta div{display:flex;flex-direction:column;gap:5px}
+.cover .meta b{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);font-weight:400}
+.cover .meta span{font-size:14px}
+
+.sec{padding:96px 0;position:relative;z-index:2}
+.sec-h{max-width:660px;margin-bottom:46px}
+.sec-h h2{font-size:clamp(30px,4.4vw,52px);margin:18px 0 18px}
+.sec-h p{color:var(--t2);font-size:16.5px}
+
+/* ---------- panels ---------- */
+.panel{background:var(--grad-panel);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--e3);position:relative;overflow:hidden}
+.panel::before{content:"";position:absolute;inset:0;background:var(--grad-sheen);pointer-events:none}
+.pad{padding:32px}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:900px){.grid3,.grid4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.grid2,.grid3,.grid4{grid-template-columns:1fr}}
+
+/* ---------- 01 diagnosis, live before and after ---------- */
+.ab{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:22px}
+@media(max-width:760px){.ab{grid-template-columns:1fr}}
+.demo-card{border-radius:var(--r-md);padding:26px;position:relative;transition:all .5s var(--ease)}
+.demo-card .tag{font-family:var(--f-mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3)}
+.demo-card h4{font-size:20px;margin:12px 0 10px}
+.demo-card p{font-size:14px;color:var(--t2)}
+.demo-card .btn-demo{margin-top:18px;display:inline-flex;padding:10px 20px;border-radius:var(--r-full);font-size:13.5px;font-weight:600;transition:all .4s var(--ease)}
+/* flat state */
+.flat{background:#0C0E14;border:1px solid rgba(255,255,255,.09)}
+.flat .btn-demo{background:#E8890C;color:#1A0F02}
+/* depth state */
+.deep{background:var(--grad-panel);border:1px solid var(--line);box-shadow:var(--e3)}
+.deep::before{content:"";position:absolute;inset:0;border-radius:var(--r-md);background:var(--grad-sheen);pointer-events:none}
+.deep .btn-demo{background:var(--grad-amber);color:#1A0F02;box-shadow:0 6px 18px -4px rgba(232,137,12,.5), inset 0 1px 0 rgba(255,255,255,.3)}
+
+.switch{display:inline-flex;align-items:center;gap:12px;font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--t2);cursor:pointer;user-select:none}
+.switch .track{width:46px;height:26px;border-radius:99px;background:var(--ink-700);border:1px solid var(--line-2);position:relative;transition:background .3s var(--ease)}
+.switch .track i{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--grad-chrome);box-shadow:var(--e2);transition:transform .35s var(--spring)}
+.switch.on .track{background:rgba(232,137,12,.25)}
+.switch.on .track i{transform:translateX(20px);background:var(--grad-amber)}
+
+.diag{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.diag li{display:flex;gap:14px;font-size:14.5px;color:var(--t2);align-items:flex-start}
+.diag li b{font-family:var(--f-mono);font-size:11px;color:var(--bad-500);padding-top:4px;flex:none;width:52px}
+.diag li span b{color:var(--t1);font-family:var(--f-body);font-size:14.5px;width:auto;padding:0}
+
+/* ---------- light source ---------- */
+.light-demo{display:flex;gap:26px;align-items:center;flex-wrap:wrap;justify-content:center;padding:44px 0}
+.chip{width:108px;height:108px;border-radius:var(--r-md);position:relative;display:grid;place-items:center;
+  font-family:var(--f-mono);font-size:10px;color:var(--t3);letter-spacing:.1em}
+.chip.l1{background:var(--ink-850);box-shadow:var(--e1)}
+.chip.l2{background:var(--ink-800);box-shadow:var(--e2)}
+.chip.l3{background:var(--ink-700);box-shadow:var(--e3)}
+.chip.l4{background:var(--ink-600);box-shadow:var(--e4)}
+.sun{position:absolute;left:34px;top:26px;width:180px;height:180px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,255,255,.1),transparent 65%)}
+
+/* ---------- colour ---------- */
+.ramp{display:flex;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--e2);margin-bottom:10px}
+.ramp div{flex:1;height:76px;position:relative}
+.ramp div span{position:absolute;bottom:7px;left:0;right:0;text-align:center;font-family:var(--f-mono);font-size:9px;opacity:.85}
+.ramp-label{display:flex;justify-content:space-between;margin-bottom:22px;font-family:var(--f-mono);font-size:11px;color:var(--t3);letter-spacing:.08em}
+.ramp-label b{color:var(--t1);font-weight:400;text-transform:uppercase}
+
+.role{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--line)}
+.role .sw{width:46px;height:46px;border-radius:12px;flex:none;box-shadow:var(--e2)}
+.role h4{font-size:15px;margin-bottom:4px}
+.role p{font-size:13.5px;color:var(--t2)}
+.role code{display:block;margin-top:5px;font-size:11px;color:var(--t3)}
+
+/* ---------- materials ---------- */
+.mat{height:170px;border-radius:var(--r-md);position:relative;overflow:hidden;box-shadow:var(--e3);display:grid;place-items:end start}
+.mat b{position:relative;z-index:3;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:16px;color:var(--t1);text-shadow:0 1px 6px rgba(0,0,0,.9)}
+.m-chrome{background:var(--grad-chrome)}
+.m-chrome b{color:#0D111B;text-shadow:none}
+.m-amber{background:var(--grad-amber)}
+.m-amber b{color:#2A1502;text-shadow:none}
+.m-signal{background:var(--grad-signal)}
+.m-glass{background:rgba(226,232,240,.06);backdrop-filter:blur(14px);border:1px solid var(--line-2)}
+.m-glass::after{content:"";position:absolute;inset:0;background:var(--grad-sheen)}
+.m-mesh{background:radial-gradient(ellipse 80% 70% at 20% 10%,rgba(76,125,255,.5),transparent 60%),radial-gradient(ellipse 70% 60% at 85% 80%,rgba(232,137,12,.42),transparent 62%),var(--ink-800)}
+.m-grain{background:var(--ink-700)}
+.m-grain::after{content:"";position:absolute;inset:0;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n2)'/%3E%3C/svg%3E")}
+
+/* ---------- type ---------- */
+.spec{display:grid;grid-template-columns:160px 1fr;gap:26px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.spec .m{font-family:var(--f-mono);font-size:11px;color:var(--t3);line-height:1.8}
+.spec .m b{display:block;color:var(--t2);font-size:12.5px}
+@media(max-width:700px){.spec{grid-template-columns:1fr;gap:10px}}
+
+/* ---------- motion demos ---------- */
+.motion-card{padding:26px;border-radius:var(--r-md);background:var(--grad-panel);border:1px solid var(--line);box-shadow:var(--e2);position:relative;overflow:hidden}
+.motion-card h4{font-size:15px;margin-bottom:8px}
+.motion-card p{font-size:13px;color:var(--t2)}
+.motion-stage{height:110px;display:grid;place-items:center;margin-top:16px;border-radius:10px;background:rgba(0,0,0,.28);position:relative;overflow:hidden}
+
+.bar-row{display:flex;gap:6px;align-items:flex-end;height:54px}
+.bar-row i{width:12px;background:var(--grad-amber);border-radius:3px;animation:barPulse 2.6s var(--ease) infinite}
+.bar-row i:nth-child(1){height:40%;animation-delay:-.1s}
+.bar-row i:nth-child(2){height:66%;animation-delay:-.4s}
+.bar-row i:nth-child(3){height:90%;animation-delay:-.7s}
+.bar-row i:nth-child(4){height:54%;animation-delay:-1s}
+.bar-row i:nth-child(5){height:76%;animation-delay:-1.3s}
+@keyframes barPulse{0%,100%{transform:scaleY(.55);opacity:.55}50%{transform:scaleY(1);opacity:1}}
+
+.tilt{width:150px;height:96px;border-radius:12px;background:var(--grad-panel);border:1px solid var(--line-2);
+  box-shadow:var(--e3);display:grid;place-items:center;font-family:var(--f-mono);font-size:10px;color:var(--t2);
+  transform-style:preserve-3d;transition:transform .12s linear;position:relative;overflow:hidden}
+.tilt .glare{position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s var(--ease);
+  background:radial-gradient(circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.22),transparent 55%)}
+.tilt:hover .glare{opacity:1}
+
+.counter{font-family:var(--f-display);font-weight:800;font-size:46px;letter-spacing:-.03em;font-variant-numeric:tabular-nums;
+  background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.marq{overflow:hidden;position:relative;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marq-track{display:flex;gap:26px;width:max-content;animation:marq 22s linear infinite}
+.marq-track span{font-family:var(--f-mono);font-size:11px;color:var(--t3);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+.par-stage{position:relative;height:110px;overflow:hidden;border-radius:10px;background:rgba(0,0,0,.3)}
+.par-l{position:absolute;inset:0;display:flex;justify-content:center;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em}
+.par-l.a{color:var(--steel-600);align-items:flex-start;padding-top:14px}
+.par-l.b{color:var(--steel-400);align-items:center}
+.par-l.c{color:var(--amber-500);align-items:flex-end;padding-bottom:14px}
+
+/* ---------- imagery ---------- */
+.covers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:860px){.covers{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.covers{grid-template-columns:1fr}}
+.cover-item{border-radius:var(--r-md);overflow:hidden;box-shadow:var(--e3);border:1px solid var(--line);position:relative}
+.cover-item canvas{display:block;width:100%;height:auto;aspect-ratio:16/10}
+.cover-item .cap{position:absolute;left:0;right:0;bottom:0;padding:14px 16px;background:linear-gradient(transparent,rgba(5,7,12,.92));
+  font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--t2)}
+
+/* ---------- components ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--f-body);font-weight:600;
+  font-size:14.5px;padding:13px 26px;border-radius:var(--r-full);border:1px solid transparent;cursor:pointer;position:relative;overflow:hidden;
+  transition:transform .18s var(--spring),box-shadow .3s var(--ease),background .3s var(--ease)}
+.btn-primary{background:var(--grad-amber);color:#1A0F02;box-shadow:0 8px 22px -6px rgba(232,137,12,.55), inset 0 1px 0 rgba(255,255,255,.34)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 32px -8px rgba(232,137,12,.7), inset 0 1px 0 rgba(255,255,255,.4)}
+.btn-ghost{background:rgba(226,232,240,.05);border-color:var(--line-2);color:var(--t1);backdrop-filter:blur(8px);box-shadow:var(--e1)}
+.btn-ghost:hover{transform:translateY(-2px);border-color:var(--steel-400);box-shadow:var(--e2)}
+.btn .shine{position:absolute;top:0;left:-60%;width:40%;height:100%;pointer-events:none;
+  background:linear-gradient(105deg,transparent,rgba(255,255,255,.4),transparent);transform:skewX(-18deg)}
+.btn:hover .shine{animation:shine .85s var(--ease) 1}
+@keyframes shine{to{left:130%}}
+
+.badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;padding:6px 13px;border-radius:var(--r-full);border:1px solid var(--line-2);
+  background:rgba(226,232,240,.05);box-shadow:var(--e1)}
+.badge.amber{border-color:rgba(232,137,12,.35);background:rgba(232,137,12,.12);color:var(--amber-300)}
+.badge.signal{border-color:rgba(76,125,255,.35);background:rgba(76,125,255,.12);color:var(--signal-300)}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 8px currentColor}
+
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:760px){.rules{grid-template-columns:1fr}}
+.rule-list li{display:flex;gap:12px;padding:11px 0;font-size:14.5px;color:var(--t2);border-bottom:1px solid var(--line)}
+.rule-list li::before{content:"";width:7px;height:7px;border-radius:2px;flex:none;margin-top:8px;background:var(--amber-500)}
+.rule-list.no li::before{background:var(--bad-500)}
+
+/* reveal */
+.rev{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+.rev.in{opacity:1;transform:none}
+
+footer{padding:60px 0 50px;position:relative;z-index:2;border-top:1px solid var(--line);margin-top:60px}
+footer p{font-family:var(--f-mono);font-size:11px;color:var(--t3)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rev{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="mesh" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="wrap cover">
+  <div class="mark">
+    <svg viewBox="0 0 240 240" aria-hidden="true">
+      <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6779" stroke-width="18" stroke-linecap="square"/></g>
+      <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9FAABA" stroke-width="18" stroke-linecap="square"/></g>
+      <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#E2E8F0" stroke-width="18" stroke-linecap="square"/></g>
+    </svg>
+    <span>Solviqo</span>
+  </div>
+  <h1>The Depth System</h1>
+  <p class="lede">The current site is correct and completely flat. This document is the fix: one light source, real colour ramps, layered materials, and motion that responds to the person using it. Everything below is live on this page, not a picture of an idea.</p>
+  <div class="meta">
+    <div><b>Version</b><span>3.0, supersedes 2.0</span></div>
+    <div><b>Scope</b><span>Visual system for the multi page site</span></div>
+    <div><b>Keeps</b><span>Sweep mark, Unbounded, amber</span></div>
+    <div><b>Adds</b><span>Light, depth, second accent, imagery</span></div>
+  </div>
+</header>
+
+<!-- 01 DIAGNOSIS -->
+<section class="sec wrap rev">
+  <div class="sec-h">
+    <div class="kick"><b>01</b> The diagnosis</div>
+    <h2>Why the site reads flat right now.</h2>
+    <p>Not because it is ugly. Because every surface sits at exactly the same height, lit by nothing, made of nothing. Flip the switch and watch the same card become an object.</p>
+  </div>
+
+  <div class="ab">
+    <div class="demo-card flat" id="cardA">
+      <span class="tag">Before</span>
+      <h4>Ops App Sprint</h4>
+      <p>One workflow becomes a real app. Database, roles, sign off, the lot.</p>
+      <span class="btn-demo">Book a call</span>
+    </div>
+    <div class="demo-card deep" id="cardB">
+      <span class="tag">After</span>
+      <h4>Ops App Sprint</h4>
+      <p>One workflow becomes a real app. Database, roles, sign off, the lot.</p>
+      <span class="btn-demo">Book a call</span>
+    </div>
+  </div>
+
+  <div class="switch" id="abSwitch" role="button" tabindex="0" aria-pressed="false">
+    <span class="track"><i></i></span> Apply depth to both
+  </div>
+
+  <ul class="diag" style="margin-top:34px">
+    <li><b>NO LIGHT</b><span>Every border is the same 1px grey on all four sides. Real objects catch light on top and fall into shadow underneath. <b>Fix: one light source, top left, forever.</b></span></li>
+    <li><b>NO RAMP</b><span>Colours are single values. Designers work in ramps of 6 to 8 steps so tints and shades are already decided. <b>Fix: four full ramps.</b></span></li>
+    <li><b>NO HEIGHT</b><span>Cards, page and header all sit on the same plane. <b>Fix: a four step elevation ladder with ambient and direct shadow.</b></span></li>
+    <li><b>NO MATERIAL</b><span>Perfectly smooth dark surfaces read as plastic. <b>Fix: film grain, sheen, brushed chrome, frosted glass.</b></span></li>
+    <li><b>ONE ACCENT</b><span>Amber alone cannot carry both "act now" and "this is data". <b>Fix: a cool second accent in tension with it.</b></span></li>
+    <li><b>DEAD MOTION</b><span>Things fade in once and then sit still forever. <b>Fix: continuous life, parallax, and surfaces that answer the cursor.</b></span></li>
+  </ul>
+</section>
+
+<!-- 02 LIGHT -->
+<section class="sec wrap rev">
+  <div class="sec-h">
+    <div class="kick"><b>02</b> Light and elevation</div>
+    <h2>One sun, top left, never moves.</h2>
+    <p>This single rule does most of the work. Every raised surface gets a 1px white inner line along its top edge, where the light lands, and drops a soft shadow below and to the right. Four heights, used consistently.</p>
+  </div>
+  <div class="panel pad" style="position:relative">
+    <div class="sun" aria-hidden="true"></div>
+    <div class="light-demo">
+      <div class="chip l1">E1</div>
+      <div class="chip l2">E2</div>
+      <div class="chip l3">E3</div>
+      <div class="chip l4">E4</div>
+    </div>
+    <div class="grid4" style="margin-top:12px">
+      <div><b style="font-family:var(--f-mono);font-size:11px;color:var(--amber-500)">E1</b><p style="font-size:13px;color:var(--t2);margin-top:6px">Resting on the page. Inputs, hairline chips.</p></div>
+      <div><b style="font-family:var(--f-mono);font-size:11px;color:var(--amber-500)">E2</b><p style="font-size:13px;color:var(--t2);margin-top:6px">Lifted. Cards at rest, buttons.</p></div>
+      <div><b style="font-family:var(--f-mono);font-size:11px;color:var(--amber-500)">E3</b><p style="font-size:13px;color:var(--t2);margin-top:6px">Floating. Cards on hover, panels.</p></div>
+      <div><b style="font-family:var(--f-mono);font-size:11px;color:var(--amber-500)">E4</b><p style="font-size:13px;color:var(--t2);margin-top:6px">Overlay. Nav, modals, the one hero object.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 COLOUR -->
+<section class="sec wrap rev">
+  <div class="sec-h">
+    <div class="kick"><b>03</b> Colour</div>
+    <h2>Four ramps, two accents in tension.</h2>
+    <p>Amber is warm and means act. Signal blue is cool and means data. Putting a warm and a cool accent against each other is what stops a palette feeling like one colour plus grey.</p>
+  </div>
+
+  <div class="ramp-label"><b>Ink</b><span>Surfaces, from page floor to raised panel</span></div>
+  <div class="ramp">
+    <div style="background:#05070C"><span style="color:#7C8899">950</span></div>
+    <div style="background:#090C14"><span style="color:#7C8899">900</span></div>
+    <div style="background:#0D111B"><span style="color:#7C8899">850</span></div>
+    <div style="background:#121722"><span style="color:#9FAABA">800</span></div>
+    <div style="background:#1A2130"><span style="color:#9FAABA">700</span></div>
+    <div style="background:#252E40"><span style="color:#C3CCD9">600</span></div>
+    <div style="background:#313B50"><span style="color:#C3CCD9">500</span></div>
+  </div>
+
+  <div class="ramp-label"><b>Steel</b><span>Text, hairlines, the chrome in the mark</span></div>
+  <div class="ramp">
+    <div style="background:#2C3442"><span style="color:#C3CCD9">700</span></div>
+    <div style="background:#3D4757"><span style="color:#C3CCD9">600</span></div>
+    <div style="background:#5B6779"><span style="color:#E2E8F0">500</span></div>
+    <div style="background:#7C8899"><span style="color:#0D111B">400</span></div>
+    <div style="background:#9FAABA"><span style="color:#0D111B">300</span></div>
+    <div style="background:#C3CCD9"><span style="color:#0D111B">200</span></div>
+    <div style="background:#E2E8F0"><span style="color:#0D111B">100</span></div>
+  </div>
+
+  <div class="ramp-label"><b>Amber</b><span>Action, live status, the one warm note</span></div>
+  <div class="ramp">
+    <div style="background:#8F4E06"><span style="color:#FFD9A3">700</span></div>
+    <div style="background:#B8660A"><span style="color:#FFD9A3">600</span></div>
+    <div style="background:#E8890C"><span style="color:#2A1502">500</span></div>
+    <div style="background:#FFA733"><span style="color:#2A1502">400</span></div>
+    <div style="background:#FFC06B"><span style="color:#2A1502">300</span></div>
+    <div style="background:#FFD9A3"><span style="color:#2A1502">200</span></div>
+  </div>
+
+  <div class="ramp-label"><b>Signal</b><span>Data, links, integration, focus</span></div>
+  <div class="ramp">
+    <div style="background:#2E4FD1"><span style="color:#A9C0FF">700</span></div>
+    <div style="background:#3B63F0"><span style="color:#A9C0FF">600</span></div>
+    <div style="background:#4C7DFF"><span style="color:#05070C">500</span></div>
+    <div style="background:#7FA0FF"><span style="color:#05070C">400</span></div>
+    <div style="background:#A9C0FF"><span style="color:#05070C">300</span></div>
+  </div>
+
+  <div class="grid2" style="margin-top:40px">
+    <div class="panel pad">
+      <div class="kick" style="margin-bottom:20px"><b></b> Roles</div>
+      <div class="role"><span class="sw" style="background:var(--grad-amber)"></span><div><h4>Amber 500, action</h4><p>Primary buttons, live indicators, the current step. Never a background fill, never more than two per screen.</p><code>--amber-500 #E8890C</code></div></div>
+      <div class="role"><span class="sw" style="background:var(--grad-signal)"></span><div><h4>Signal 500, data</h4><p>Links, integration diagrams, focus rings, selected states, chart lines.</p><code>--signal-500 #4C7DFF</code></div></div>
+      <div class="role"><span class="sw" style="background:var(--grad-chrome)"></span><div><h4>Chrome, the mark</h4><p>The logo, dividers, the sheen on raised surfaces. Structure, never decoration.</p><code>--grad-chrome</code></div></div>
+      <div class="role" style="border:none"><span class="sw" style="background:#34D399"></span><div><h4>Semantic</h4><p>Success, warning, critical. Status only. These never carry brand meaning.</p><code>#34D399 #FBBF24 #F87171</code></div></div>
+    </div>
+    <div class="panel pad">
+      <div class="kick" style="margin-bottom:20px"><b></b> The 60 30 10 split</div>
+      <p style="font-size:14.5px;color:var(--t2);margin-bottom:22px">How much of each, on any given screen. Break this and the page stops feeling designed.</p>
+      <div style="display:flex;height:150px;gap:4px;border-radius:12px;overflow:hidden;box-shadow:var(--e2)">
+        <div style="flex:60;background:var(--grad-panel);display:grid;place-items:center;font-family:var(--f-mono);font-size:11px;color:var(--t2);text-align:center">60%<br>INK</div>
+        <div style="flex:30;background:linear-gradient(160deg,#3D4757,#252E40);display:grid;place-items:center;font-family:var(--f-mono);font-size:11px;color:var(--t1);text-align:center">30%<br>STEEL</div>
+        <div style="flex:7;background:var(--grad-amber);display:grid;place-items:center;font-family:var(--f-mono);font-size:10px;color:#2A1502;writing-mode:vertical-rl">7% AMBER</div>
+        <div style="flex:3;background:var(--grad-signal);display:grid;place-items:center;font-family:var(--f-mono);font-size:10px;color:#05070C;writing-mode:vertical-rl">3%</div>
+      </div>
+      <p style="font-size:13px;color:var(--t3);margin-top:18px">Amber and signal together never exceed a tenth of a screen. That is what makes them read as signal instead of decoration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 MATERIALS -->
+<section class="sec wrap rev">
+  <div class="sec-h">
+    <div class="kick"><b>04</b> Materials</div>
+    <h2>Surfaces made of something.</h2>
+    <p>Six materials, each with a job. The grain is the one nobody notices and everybody feels: it is the difference between a dark screen and a dark object.</p>
+  </div>
+  <div class="grid3">
+    <div class="mat m-chrome"><b>Brushed chrome</b></div>
+    <div class="mat m-amber"><b>Amber, lit</b></div>
+    <div class="mat m-signal"><b>Signal, lit</b></div>
+    <div class="mat m-glass"><b>Frosted glass</b></div>
+    <div class="mat m-mesh"><b>Mesh field</b></div>
+    <div class="mat m-grain"><b>Film grain</b></div>
+  </div>
+</section>
+
+<!-- 05 TYPE -->
+<section class="sec wrap rev">
+  <div class="sec-h">
+    <div class="kick"><b>05</b> Typography</div>
+    <h2>Unbounded stays. It earns a gradient.</h2>
+    <p>The display face is already right. What changes is treatment: large headings take a chrome gradient, so type behaves like the same material as everything else.</p>
+  </div>
+  <div class="panel pad">
+    <div class="spec"><div class="m"><b>Display XL</b>Unbounded 800<br>clamp 44 to 104px<br>tracking -.025em</div>
+      <div style="font-family:var(--f-display);font-weight:800;font-size:clamp(34px,5.4vw,64px);letter-spacing:-.03em;background:var(--grad-text);-webkit-background-clip:text;background-clip:text;color:transparent">Close the gap.</div></div>
+    <div class="spec"><div class="m"><b>Display</b>Unbounded 700<br>clamp 30 to 52px</div>
+      <div style="font-family:var(--f-display);font-weight:700;font-size:clamp(24px,3.4vw,40px);letter-spacing:-.025em">Four weeks, not four quarters.</div></div>
+    <div class="spec"><div class="m"><b>Body</b>IBM Plex Sans 400<br>16px / 1.65</div>
+      <div style="font-size:16px;color:var(--t2);max-width:52ch">Solviqo builds the fleet, HSSE and compliance apps your ERP will not, wired into the system you already run.</div></div>
+    <div class="spec" style="border:none"><div class="m"><b>Mono</b>IBM Plex Mono 400<br>11px / .14em</div>
+      <div style="font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3)">STATUS LIVE / SPRINT OPS-04 / GAP 0.0s</div></div>
+  </div>
+</section>
+
+<!-- 06 MOTION -->
+<section class="sec wrap rev">
+  <div class="sec-h">
+    <div class="kick"><b>06</b> Motion</div>
+    <h2>Six behaviours, all of them live here.</h2>
+    <p>Hover the tilt card. Everything on this row is running right now, which is the point: motion is specified by demonstration, never by adjective.</p>
+  </div>
+  <div class="grid3">
+    <div class="motion-card"><h4>Ambient life</h4><p>Every section owns one thing that never fully stops, at whisper level.</p>
+      <div class="motion-stage"><div class="bar-row"><i></i><i></i><i></i><i></i><i></i></div></div></div>
+
+    <div class="motion-card"><h4>Tilt and glare</h4><p>Cards rotate toward the cursor in real perspective, with a highlight that tracks it.</p>
+      <div class="motion-stage" style="perspective:700px"><div class="tilt" id="tiltDemo">HOVER ME<span class="glare"></span></div></div></div>
+
+    <div class="motion-card"><h4>Counters</h4><p>Numbers count up once when they enter, then hold. Never on a loop.</p>
+      <div class="motion-stage"><span class="counter" data-count="3.2" data-suffix=" days">0.0 days</span></div></div>
+
+    <div class="motion-card"><h4>Parallax depth</h4><p>Three layers move at different speeds against the scroll, so the page has a back and a front.</p>
+      <div class="motion-stage par-stage" id="parStage">
+        <div class="par-l a" data-depth="6">BACK LAYER</div>
+        <div class="par-l b" data-depth="14">MIDDLE</div>
+        <div class="par-l c" data-depth="26">FRONT</div>
+      </div></div>
+
+    <div class="motion-card"><h4>Marquee</h4><p>A slow ticker of the real vocabulary, used once per page maximum.</p>
+      <div class="motion-stage"><div class="marq" style="width:100%"><div class="marq-track">
+        <span>FLEET</span><span>HSSE</span><span>ACCOMMODATION</span><span>VIOLATIONS</span><span>ORACLE FUSION</span><span>APPROVALS</span>
+        <span>FLEET</span><span>HSSE</span><span>ACCOMMODATION</span><span>VIOLATIONS</span><span>ORACLE FUSION</span><span>APPROVALS</span>
+      </div></div></div></div>
+
+    <div class="motion-card"><h4>Shine on press</h4><p>Primary buttons pass a light across themselves on hover. Once, quickly, never idle.</p>
+      <div class="motion-stage"><button class="btn btn-primary">Book a call<span class="shine"></span></button></div></div>
+  </div>
+</section>
+
+<!-- 07 IMAGERY -->
+<section class="sec wrap rev">
+  <div class="sec-h">
+    <div class="kick"><b>07</b> Imagery</div>
+    <h2>Every article and case gets its own artwork, generated.</h2>
+    <p>No stock photography, no licence problems, no generic office handshake. Each cover is drawn from the title itself, so it is unique to that piece and unmistakably from this brand. Three examples, drawn live in your browser right now.</p>
+  </div>
+  <div class="covers" id="coverDemo">
+    <div class="cover-item"><canvas data-seed="Why your Oracle Fusion backlog is six months long" data-kind="0"></canvas><div class="cap">Blog / Process</div></div>
+    <div class="cover-item"><canvas data-seed="Replacing a two day paper reconciliation" data-kind="1"></canvas><div class="cap">Case / Logistics</div></div>
+    <div class="cover-item"><canvas data-seed="The real cost of tracking HSSE observations" data-kind="2"></canvas><div class="cap">Blog / HSSE</div></div>
+  </div>
+  <p style="font-size:13.5px;color:var(--t3);margin-top:20px;max-width:64ch">Three families: field of nodes for process pieces, strata for case studies, orbit for anything about tracking. The palette and light come from the tokens above, so the covers cannot drift off brand.</p>
+</section>
+
+<!-- 08 COMPONENTS -->
+<section class="sec wrap rev">
+  <div class="sec-h">
+    <div class="kick"><b>08</b> Components</div>
+    <h2>The parts, rebuilt in the new material.</h2>
+  </div>
+  <div class="panel pad">
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:34px">
+      <button class="btn btn-primary">Book a scoping call<span class="shine"></span></button>
+      <button class="btn btn-ghost">See the work</button>
+      <span class="badge amber"><span class="dot"></span>Live</span>
+      <span class="badge signal">Oracle Fusion</span>
+      <span class="badge">2 to 3 weeks</span>
+    </div>
+    <div class="grid3" id="tiltCards">
+      <div class="demo-card deep tilt-card"><span class="tag">01</span><h4>Ops App Sprint</h4><p>One workflow, built and deployed. Fixed price.</p><span class="glare"></span></div>
+      <div class="demo-card deep tilt-card"><span class="tag">02</span><h4>Fusion Bridge</h4><p>The process Fusion will not handle, built beside it.</p><span class="glare"></span></div>
+      <div class="demo-card deep tilt-card"><span class="tag">03</span><h4>Dashboard Sprint</h4><p>Your data, one live view, one to two weeks.</p><span class="glare"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 RULES -->
+<section class="sec wrap rev">
+  <div class="sec-h">
+    <div class="kick"><b>09</b> Rules</div>
+    <h2>What holds it together.</h2>
+  </div>
+  <div class="rules">
+    <div class="panel pad">
+      <div class="kick" style="margin-bottom:18px;color:var(--amber-500)"><b></b> Always</div>
+      <ul class="rule-list">
+        <li>Light from the top left. Inner highlight on top, shadow below.</li>
+        <li>Pick from the ramp. Never invent a one off colour.</li>
+        <li>Grain on every dark surface, at 30 to 35 percent.</li>
+        <li>Amber and signal together stay under a tenth of the screen.</li>
+        <li>Every section owns one quiet living element.</li>
+        <li>Motion answers the cursor. Cards tilt, buttons shine.</li>
+        <li>Every heading over 40px takes the chrome gradient.</li>
+      </ul>
+    </div>
+    <div class="panel pad">
+      <div class="kick" style="margin-bottom:18px;color:var(--bad-500)"><b></b> Never</div>
+      <ul class="rule-list no">
+        <li>A flat 1px border on all four sides of a raised object.</li>
+        <li>Two accent colours competing in the same block.</li>
+        <li>Stock photography, anywhere, for any reason.</li>
+        <li>Pure black or pure white as a surface.</li>
+        <li>A gradient on body text, or on anything under 40px.</li>
+        <li>Animation that loops in the corner of the eye with no purpose.</li>
+        <li>More than one marquee on a page.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <p>SOLVIQO DEPTH SYSTEM 3.0 / THE MARK, THE TYPE AND THE AMBER CARRY OVER FROM 2.0 / EVERYTHING ON THIS PAGE IS LIVE CODE</p>
+</footer>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* reveal */
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.08, rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.rev').forEach(function(el){ io.observe(el); });
+  }
+
+  /* before / after switch */
+  var sw = document.getElementById('abSwitch'), cardA = document.getElementById('cardA');
+  function toggleAB(){
+    var on = sw.classList.toggle('on');
+    sw.setAttribute('aria-pressed', on ? 'true':'false');
+    cardA.classList.toggle('flat', !on);
+    cardA.classList.toggle('deep', on);
+    cardA.querySelector('.tag').textContent = on ? 'After' : 'Before';
+  }
+  sw.addEventListener('click', toggleAB);
+  sw.addEventListener('keydown', function(e){ if(e.key===' '||e.key==='Enter'){ e.preventDefault(); toggleAB(); } });
+
+  /* tilt with glare */
+  function bindTilt(el, max){
+    if (reduce) return;
+    var glare = el.querySelector('.glare');
+    el.addEventListener('pointermove', function(ev){
+      var r = el.getBoundingClientRect();
+      var px = (ev.clientX - r.left)/r.width, py = (ev.clientY - r.top)/r.height;
+      el.style.transform = 'perspective(800px) rotateY('+((px-.5)*max)+'deg) rotateX('+((.5-py)*max)+'deg) translateZ(6px)';
+      if (glare){ glare.style.setProperty('--gx',(px*100)+'%'); glare.style.setProperty('--gy',(py*100)+'%'); glare.style.opacity='1'; }
+    });
+    el.addEventListener('pointerleave', function(){
+      el.style.transform = '';
+      if (glare) glare.style.opacity = '0';
+    });
+  }
+  var td = document.getElementById('tiltDemo'); if (td) bindTilt(td, 16);
+  document.querySelectorAll('.tilt-card').forEach(function(c){
+    c.style.transition = 'transform .25s var(--ease), box-shadow .3s var(--ease)';
+    var g = c.querySelector('.glare');
+    if (g){ g.style.position='absolute'; g.style.inset='0'; g.style.opacity='0'; g.style.pointerEvents='none';
+      g.style.transition='opacity .3s ease'; g.style.borderRadius='inherit';
+      g.style.background='radial-gradient(circle at var(--gx,50%) var(--gy,50%), rgba(255,255,255,.16), transparent 55%)'; }
+    bindTilt(c, 9);
+  });
+
+  /* counters */
+  if ('IntersectionObserver' in window){
+    var cio = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(!e.isIntersecting) return;
+        var el = e.target, to = parseFloat(el.dataset.count), suf = el.dataset.suffix||'', t0 = null;
+        if (reduce){ el.textContent = to.toFixed(1)+suf; cio.unobserve(el); return; }
+        function step(ts){ t0 = t0||ts; var p = Math.min(1,(ts-t0)/1200); var e2 = 1-Math.pow(1-p,3);
+          el.textContent = (to*e2).toFixed(1)+suf; if(p<1) requestAnimationFrame(step); }
+        requestAnimationFrame(step); cio.unobserve(el);
+      });
+    },{threshold:.5});
+    document.querySelectorAll('[data-count]').forEach(function(el){ cio.observe(el); });
+  }
+
+  /* parallax demo */
+  var par = document.getElementById('parStage');
+  if (par && !reduce){
+    var layers = par.querySelectorAll('.par-l');
+    addEventListener('scroll', function(){
+      var r = par.getBoundingClientRect();
+      var p = (r.top + r.height/2 - innerHeight/2) / innerHeight;
+      layers.forEach(function(l){ l.style.transform = 'translateY('+(p * -parseFloat(l.dataset.depth))+'px)'; });
+    }, {passive:true});
+  }
+
+  /* ---------- generated cover art ---------- */
+  function rng(str){
+    var h = 2166136261;
+    for (var i=0;i<str.length;i++){ h ^= str.charCodeAt(i); h = Math.imul(h,16777619); }
+    return function(){ h ^= h<<13; h ^= h>>>17; h ^= h<<5; return ((h>>>0)%100000)/100000; };
+  }
+  function drawCover(cv, seed, kind){
+    var dpr = Math.min(2, devicePixelRatio||1);
+    var w = cv.clientWidth || 420, h = Math.round(w*10/16);
+    cv.width = w*dpr; cv.height = h*dpr;
+    var c = cv.getContext('2d'); c.setTransform(dpr,0,0,dpr,0,0);
+    var r = rng(seed);
+
+    // base
+    var g = c.createLinearGradient(0,0,w,h);
+    g.addColorStop(0,'#121722'); g.addColorStop(1,'#07090F');
+    c.fillStyle = g; c.fillRect(0,0,w,h);
+
+    // mesh blooms, one warm one cool, placed by seed
+    function bloom(x,y,rad,col,a){
+      var rg = c.createRadialGradient(x,y,0,x,y,rad);
+      rg.addColorStop(0,col.replace('ALPHA',a)); rg.addColorStop(1,col.replace('ALPHA',0));
+      c.fillStyle = rg; c.fillRect(0,0,w,h);
+    }
+    bloom(w*(0.12+r()*0.3), h*(0.1+r()*0.3), w*0.7, 'rgba(76,125,255,ALPHA)', 0.5);
+    bloom(w*(0.6+r()*0.32), h*(0.55+r()*0.4), w*0.6, 'rgba(232,137,12,ALPHA)', 0.42);
+
+    c.save();
+    if (kind === 0){            // field of nodes
+      var cols = 9, rows = 6, pad = w*0.14;
+      var dx = (w-pad*2)/(cols-1), dy = (h-pad*2)/(rows-1);
+      c.strokeStyle = 'rgba(159,170,186,.22)'; c.lineWidth = 1;
+      for (var i=0;i<rows;i++) for (var j=0;j<cols;j++){
+        var x = pad+j*dx + (r()-.5)*7, y = pad+i*dy + (r()-.5)*7;
+        if (j<cols-1){ c.beginPath(); c.moveTo(x,y); c.lineTo(pad+(j+1)*dx,pad+i*dy); c.stroke(); }
+        if (i<rows-1){ c.beginPath(); c.moveTo(x,y); c.lineTo(pad+j*dx,pad+(i+1)*dy); c.stroke(); }
+        c.fillStyle = (r()>0.93) ? '#E8890C' : 'rgba(195,204,217,.75)';
+        c.beginPath(); c.arc(x,y, r()>0.93?3.4:1.9, 0, 6.2832); c.fill();
+      }
+    } else if (kind === 1){     // strata
+      var bands = 7;
+      for (var k=0;k<bands;k++){
+        var yy = h*(0.22+k*0.1) + (r()-.5)*10;
+        c.beginPath(); c.moveTo(0,yy);
+        for (var xx=0; xx<=w; xx+=w/8){ c.lineTo(xx, yy + Math.sin((xx/w)*3.2 + k)* (6+k*2)); }
+        c.strokeStyle = k===3 ? 'rgba(232,137,12,.85)' : 'rgba(159,170,186,'+(0.14+k*0.045)+')';
+        c.lineWidth = k===3 ? 2.2 : 1; c.stroke();
+      }
+    } else {                    // orbit
+      var cx = w*(0.42+r()*0.18), cy = h*(0.5+ (r()-.5)*0.14);
+      for (var o=0;o<4;o++){
+        c.beginPath();
+        c.ellipse(cx, cy, w*(0.13+o*0.088), h*(0.09+o*0.055), -0.34+ (r()-.5)*0.1, 0, 6.2832);
+        c.strokeStyle = 'rgba(159,170,186,'+(0.4-o*0.07)+')'; c.lineWidth = o===1?1.8:1; c.stroke();
+      }
+      var ang = r()*6.2832;
+      var px = cx + Math.cos(ang)*w*0.218, py = cy + Math.sin(ang)*h*0.145;
+      var pg = c.createRadialGradient(px,py,0,px,py,16);
+      pg.addColorStop(0,'rgba(232,137,12,.95)'); pg.addColorStop(1,'rgba(232,137,12,0)');
+      c.fillStyle = pg; c.beginPath(); c.arc(px,py,16,0,6.2832); c.fill();
+      c.fillStyle = '#FFC06B'; c.beginPath(); c.arc(px,py,3.6,0,6.2832); c.fill();
+    }
+    c.restore();
+
+    // the mark, bottom right, quiet
+    c.save(); c.translate(w-64, h-54); c.scale(0.17,0.17); c.lineCap='butt'; c.lineWidth=18;
+    [[70,168,-25,0.62,'rgba(91,103,121,.9)'],[118,128,-12,0.82,'rgba(159,170,186,.9)'],[172,72,2,1.05,'rgba(226,232,240,.95)']]
+      .forEach(function(s){
+        c.save(); c.translate(s[0],s[1]); c.rotate(s[2]*Math.PI/180); c.scale(s[3],s[3]);
+        c.strokeStyle = s[4]; c.beginPath(); c.moveTo(-27,-30); c.lineTo(28,0); c.lineTo(-27,30); c.stroke(); c.restore();
+      });
+    c.restore();
+
+    // vignette + grain
+    var vg = c.createRadialGradient(w/2,h/2,h*0.2,w/2,h/2,w*0.75);
+    vg.addColorStop(0,'rgba(0,0,0,0)'); vg.addColorStop(1,'rgba(0,0,0,.55)');
+    c.fillStyle = vg; c.fillRect(0,0,w,h);
+    var img = c.getImageData(0,0,cv.width,cv.height), d = img.data;
+    for (var q=0;q<d.length;q+=4){ var n=(Math.random()-.5)*15; d[q]+=n; d[q+1]+=n; d[q+2]+=n; }
+    c.putImageData(img,0,0);
+  }
+  document.querySelectorAll('#coverDemo canvas').forEach(function(cv){
+    drawCover(cv, cv.dataset.seed, +cv.dataset.kind);
+  });
+  addEventListener('resize', function(){
+    clearTimeout(window.__cvT);
+    window.__cvT = setTimeout(function(){
+      document.querySelectorAll('#coverDemo canvas').forEach(function(cv){ drawCover(cv, cv.dataset.seed, +cv.dataset.kind); });
+    }, 200);
+  }, {passive:true});
+})();
+</script>
+</body>
+</html>

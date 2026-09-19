@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog · Solviqo</title>
+<meta name="description" content="Notes on ERP gaps, operations and shipping operational software fast, from the studio building it.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Crect width='240' height='240' rx='48' fill='%230D1117'/%3E%3Cg transform='translate(70,168) rotate(-25) scale(0.62)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%235B6474' stroke-width='18'/%3E%3C/g%3E%3Cg transform='translate(118,128) rotate(-12) scale(0.82)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%239AA4B2' stroke-width='18'/%3E%3C/g%3E%3Cg transform='translate(172,72) rotate(2) scale(1.05)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%23F4F6FA' stroke-width='18'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><linearGradient id="gradChrome" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#B9C6DA"/><stop offset="45%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#8CA0BE"/></linearGradient></defs>
+</svg>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 240 240" class="brand-mark" aria-hidden="true">
+        <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g>
+        <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g>
+        <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g>
+      </svg>
+      <span class="brand-word">Solviqo</span>
+    </a>
+    <div class="nav-right">
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a call</a>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="ln"></span><span class="ln"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="navLinks" class="nav-links">
+  <div class="container nav-links-inner">
+    <nav>
+      <a href="index.html"><span class="idx">01</span>Home</a>
+      <a href="about.html"><span class="idx">02</span>About</a>
+      <a href="services.html"><span class="idx">03</span>Services</a>
+      <a href="case-studies.html"><span class="idx">04</span>Case Studies</a>
+      <a href="blog.html" class="active"><span class="idx">05</span>Blog</a>
+      <a href="contact.html"><span class="idx">06</span>Contact</a>
+    </nav>
+    <div class="nav-foot">
+      <a href="mailto:studio@solviqo.com">studio@solviqo.com</a>
+      <a href="contact.html" class="btn btn-primary">Book a call</a>
+      <span>Dubai, UAE</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <section class="hero" style="padding-bottom:40px;">
+    <div class="container" style="max-width:720px;">
+      <span class="eyebrow">The Studio Blog</span>
+      <h1 style="font-size:46px;margin-top:18px;">Notes on operations, ERP gaps and shipping fast.</h1>
+      <p class="lede">Short, specific pieces on the actual problems we see on scoping calls. No thought leadership, just the pattern and what fixes it.</p>
+    </div>
+  </section>
+
+  <section class="section" style="border-bottom:none;padding-top:0;">
+    <div class="container">
+      <div id="postList" class="grid-2" hidden></div>
+      <div id="postDetail" hidden></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <svg viewBox="0 0 240 240" class="brand-mark" aria-hidden="true">
+            <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g>
+            <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g>
+            <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g>
+          </svg>
+          <span class="brand-word">Solviqo</span>
+        </a>
+        <p>Operational apps for industrial teams across the Gulf. Fleet, HSSE, compliance and approvals, live in weeks, not quarters.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Studio</h4>
+        <ul><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="blog.html">Blog</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul><li><a href="services.html#ops-app-sprint">Ops App Sprint</a></li><li><a href="services.html#oracle-fusion-bridge">Oracle Fusion Bridge</a></li><li><a href="services.html#dashboard-sprint">Dashboard Sprint</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul><li><a href="mailto:studio@solviqo.com">studio@solviqo.com</a></li><li><a href="contact.html">Book a call</a></li><li><span class="muted">Dubai, UAE</span></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>SOLVIQO STUDIO &copy; 2026. BUILT ON THE SAME PRINCIPLE AS EVERYTHING WE SHIP.</p>
+      <p>OPERATIONAL SOFTWARE, GULF / MIDDLE EAST</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

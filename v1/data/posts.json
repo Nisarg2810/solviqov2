@@ -1,0 +1,117 @@
+[
+  {
+    "slug": "oracle-fusion-backlog",
+    "title": "Why your Oracle Fusion backlog is six months long",
+    "category": "Process",
+    "date": "2026-07-14",
+    "readTime": "6 min read",
+    "excerpt": "Your ERP partner is not incompetent. They are booked. Here is what is actually happening behind that ticket, and the one move that gets a workflow live without waiting for the queue to clear.",
+    "body": [
+      { "type": "p", "text": "Every Ops or IT manager we talk to describes the same thing in almost the same words. A request goes into the Oracle Fusion partner's queue: one new screen, one workflow, one report that does not exist yet. Six months later, it still has not shipped." },
+      { "type": "h3", "text": "The queue is not a bug" },
+      { "type": "p", "text": "Your Fusion partner is not sitting on your ticket out of neglect. Their business runs on module implementations and large change orders, the kind of work priced in the hundreds of thousands. A one-screen violation tracker for your HSSE team is real work, but it is small work, and small work gets scheduled around the big contracts, not ahead of them. That is not a service failure. It is how the incentives are built." },
+      { "type": "h3", "text": "What gets fast-tracked, and what does not" },
+      { "type": "list", "items": [
+        "Anything tied to a paid module go-live moves first.",
+        "Anything billed under a retainer moves next, in the order it was opened.",
+        "A standalone request for one screen or one workflow, from a team that is not the one paying the big invoice, moves last."
+      ]},
+      { "type": "p", "text": "If your request falls into that third bucket, it is not that nobody wants to help you. It is that you are, structurally, at the back of every queue that partner runs." },
+      { "type": "h3", "text": "The workaround that actually works" },
+      { "type": "p", "text": "The fix is not to escalate harder or find a more responsive partner. It is to stop asking your ERP partner to build small, standalone tools at all, and instead have someone build the workflow as a lightweight app that reads and writes to Oracle Fusion through its API. Your Fusion instance stays exactly as it is. The workflow your team actually needs shows up in two to four weeks instead of two to four quarters." },
+      { "type": "p", "text": "This is the entire premise behind an Oracle Fusion Bridge sprint: one workflow, scoped tightly, connected to the system you already run, built by someone whose only job that month is your ticket." },
+      { "type": "quote", "text": "The problem was never Oracle Fusion. It was asking a platform built for enterprise-wide rollouts to also handle a single team's Tuesday morning workflow." },
+      { "type": "p", "text": "If you are staring down a backlog right now, the question worth asking is not when the ticket will move. It is whether it needs to be a ticket at all." }
+    ]
+  },
+  {
+    "slug": "hsse-spreadsheet-cost",
+    "title": "The real cost of tracking HSSE observations in a spreadsheet",
+    "category": "HSSE",
+    "date": "2026-07-28",
+    "readTime": "5 min read",
+    "excerpt": "A spreadsheet does not fail loudly. It fails quietly, one overwritten row and one missed follow-up at a time, until an audit finds the gap for you.",
+    "body": [
+      { "type": "p", "text": "Ask an HSSE manager how observations get logged and most describe the same system: a shared Excel file, one column per site, one row per incident, updated by whoever got to the laptop first that week." },
+      { "type": "h3", "text": "Where it actually breaks" },
+      { "type": "list", "items": [
+        "Two people editing the same file at once, and one set of entries quietly overwriting the other.",
+        "A site supervisor logging an observation on a phone, in a text message, meaning to add it to the sheet later.",
+        "No enforced closure. A hazard gets logged as open and nobody owns turning it into closed.",
+        "No trend visibility. Nobody can say, in a five minute glance, whether near misses are rising on a specific site."
+      ]},
+      { "type": "h3", "text": "Why this stays hidden until it does not" },
+      { "type": "p", "text": "None of this shows up as a problem in a normal month. It shows up the day an auditor asks for a closure trail on a specific incident from four months ago, and the only record is a cell that somebody overwrote in March." },
+      { "type": "h3", "text": "What replaces it" },
+      { "type": "p", "text": "An HSSE observation tracker does three things a spreadsheet cannot: it enforces who can log, edit and close an observation, it timestamps every change instead of quietly overwriting the last one, and it gives a site or regional manager a live view instead of a monthly export. Built as a real app, wired into the same Oracle Fusion or ERP instance your compliance team already reports out of, it becomes the system of record instead of a side file nobody trusts." },
+      { "type": "p", "text": "None of this requires ripping out anything you already run. It requires one workflow, built once, used every day." }
+    ]
+  },
+  {
+    "slug": "scoping-a-sprint",
+    "title": "A field guide to scoping a two week app sprint",
+    "category": "How we work",
+    "date": "2026-08-11",
+    "readTime": "7 min read",
+    "excerpt": "The fastest way to blow a two week timeline is to scope three workflows and call it one. Here is exactly how we narrow a request down to something that actually ships on time.",
+    "body": [
+      { "type": "p", "text": "Almost every project that comes to us starts the same way: we need an app for tracking X. By the end of a twenty minute call, X has usually split into three or four different things wearing one name." },
+      { "type": "h3", "text": "The tell that a scope is too big" },
+      { "type": "p", "text": "If a workflow needs more than one type of user with meaningfully different permissions, more than one approval stage, and more than one system it has to talk to, it is not one sprint. It is two, and trying to force it into one is how a two week estimate becomes an eight week apology." },
+      { "type": "h3", "text": "What we actually ask on the call" },
+      { "type": "list", "items": [
+        "Who logs the first entry, and what do they see on day one?",
+        "Who approves it, and what happens if they reject it?",
+        "Where does the data need to end up: a dashboard, an export, or another system entirely?",
+        "What is the one thing that, if it did not work on day one, would make this a failure?"
+      ]},
+      { "type": "p", "text": "That last question does more work than the other three combined. It forces a client to name the actual point of the app, instead of the wish list around it." },
+      { "type": "h3", "text": "What gets cut, and why that is good news" },
+      { "type": "p", "text": "Almost every scoping call ends with something removed, not added: the export nobody actually opens monthly, the second approval tier that exists on paper but never triggers in practice, the dashboard view that was requested before anyone had data to put in it. Cutting these is not a downgrade. It is the difference between a tool your team opens every day and a feature nobody remembers to use." },
+      { "type": "p", "text": "A sprint that ships in two weeks is not a smaller version of what you asked for. It is the sharpest version of what you actually need, with everything that was not load bearing removed before the first line of code." }
+    ]
+  },
+  {
+    "slug": "fleet-inspections-paper-cost",
+    "title": "Fleet inspections on paper: what it is actually costing you",
+    "category": "Fleet",
+    "date": "2026-08-25",
+    "readTime": "5 min read",
+    "excerpt": "A paper checklist feels free. It is not. It is a two day reconciliation job wearing a clipboard.",
+    "body": [
+      { "type": "p", "text": "A paper vehicle inspection checklist is the cheapest possible way to start tracking fleet condition, and for a small fleet it is a reasonable way to run things. Past a certain size, the same paper checklist becomes the most expensive part of the process, just in a way that never appears on an invoice." },
+      { "type": "h3", "text": "The hidden reconciliation tax" },
+      { "type": "p", "text": "Someone, usually a fleet coordinator, spends one to two days a week turning stacks of paper checklists into a spreadsheet a regional manager can actually read. That is not fleet management. That is data entry wearing a fleet manager's job title." },
+      { "type": "h3", "text": "What gets lost in the gap" },
+      { "type": "list", "items": [
+        "A vehicle that failed an inspection on Tuesday keeps running until Friday, because the paper has not been transcribed yet.",
+        "Two supervisors report the same defect on two different vehicles, and nobody notices the pattern until a third one fails the same way.",
+        "The regional report presented in Monday's meeting is, structurally, four to six days out of date by the time anyone reads it."
+      ]},
+      { "type": "p", "text": "A digital inspection app closes that gap by design, not by discipline. The inspection is the record. There is no second step where someone re-types it into the system that actually matters." },
+      { "type": "p", "text": "For a fleet running Oracle Fusion or another ERP for asset tracking, the app does not replace that system. It feeds it, in real time, from the one place the data actually gets created: the vehicle, at the moment someone is standing in front of it." }
+    ]
+  },
+  {
+    "slug": "whatsapp-approvals-risk",
+    "title": "Approvals over WhatsApp: the compliance risk nobody has written down",
+    "category": "Compliance",
+    "date": "2026-09-05",
+    "readTime": "5 min read",
+    "excerpt": "If your approval trail lives in a chat thread, you do not have an approval process. You have a conversation that happened to end well, so far.",
+    "body": [
+      { "type": "p", "text": "Ask most operations teams how a request gets approved and the honest answer, after enough follow up questions, is a WhatsApp thread or an email chain. Someone asks, someone with authority replies with a thumbs up or a one line yes, and everyone moves on." },
+      { "type": "h3", "text": "Why this works right up until it does not" },
+      { "type": "p", "text": "It works because the people involved trust each other and the decisions are usually correct. It stops working the moment anyone needs to answer a very specific question: who approved this, exactly when, under what version of the request, and what did they actually see before they said yes." },
+      { "type": "h3", "text": "Where this becomes expensive" },
+      { "type": "list", "items": [
+        "A disputed invoice, where the only evidence of sign off is a message that has since been deleted or a phone that has since been replaced.",
+        "A safety incident, where an auditor wants a documented approval chain and finds a text message instead.",
+        "A vendor payment approved by someone who was, on paper, not authorized to approve it, and nobody can say who actually gave the go ahead."
+      ]},
+      { "type": "p", "text": "None of this means the team is careless. It means the approval process was never built as a process. It grew, informally, out of whatever tool was fastest to open." },
+      { "type": "h3", "text": "What an approvals app actually buys you" },
+      { "type": "p", "text": "Not more bureaucracy. The opposite: a request moves through the same number of steps it does today, but each step is logged, timestamped and tied to a specific person's login instead of a phone number. When an auditor or a dispute asks the question, the answer already exists, instead of needing to be reconstructed from memory and screenshots." }
+    ]
+  }
+]

@@ -1,0 +1,447 @@
+[
+  {
+    "slug": "custom-vs-off-the-shelf",
+    "title": "Custom software or off the shelf? A simple way to decide",
+    "category": "Buying software",
+    "date": "2026-09-18",
+    "readTime": "6 min read",
+    "art": 1,
+    "excerpt": "Off the shelf tools are cheaper on day one. Custom software is cheaper on day five hundred. Here is a plain test for which one your business actually needs.",
+    "body": [
+      {
+        "type": "p",
+        "text": "Every growing business hits the same moment. The tool you signed up for in year one starts bending the way you work instead of the other way round. People keep side spreadsheets. Someone becomes the unofficial expert in workarounds. The question arrives: do we find a better product, or do we build our own?"
+      },
+      {
+        "type": "p",
+        "text": "There is no universal answer, but there is a reliable way to decide. It comes down to one question: is this process a commodity, or is it how you win?"
+      },
+      {
+        "type": "h3",
+        "text": "Buy when the process is the same everywhere"
+      },
+      {
+        "type": "p",
+        "text": "Payroll, email, accounting, video calls. These work more or less the same in every company, and the products built for them are excellent because millions of customers shaped them. Building your own version would cost more and deliver less. Buy these, configure them well, and move on."
+      },
+      {
+        "type": "h3",
+        "text": "Build when the process is what makes you different"
+      },
+      {
+        "type": "p",
+        "text": "How you quote a job, allocate a crew, approve a purchase or track a site inspection is often specific to your business. That is exactly where off the shelf tools struggle, because they are built for the average company, and your advantage lives in the parts that are not average."
+      },
+      {
+        "type": "list",
+        "items": [
+          "Your team keeps a spreadsheet next to the official tool",
+          "The same information is typed into two or three systems",
+          "Approvals happen in chat because the tool cannot model them",
+          "You pay for a large platform and use ten percent of it",
+          "Reports are built by hand before every meeting"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "If three or more of these sound familiar, the tool is costing you more in workarounds than it saves in licence fees."
+      },
+      {
+        "type": "h3",
+        "text": "The middle path most people miss"
+      },
+      {
+        "type": "p",
+        "text": "It is rarely all or nothing. The best setups keep the commodity tools and add a small custom layer on top: one app for the process that matters, connected to the systems you already pay for. You keep your accounting package and your CRM. You stop forcing them to do a job they were never designed for."
+      },
+      {
+        "type": "quote",
+        "text": "Buy for the parts of the business that look like everyone else. Build for the parts that make you you."
+      },
+      {
+        "type": "h3",
+        "text": "What it should cost you to find out"
+      },
+      {
+        "type": "p",
+        "text": "Not much. A good studio should be able to tell you in one short call whether a custom build makes sense, and if it does not, say so. If the answer is yes, the first release should be scoped tightly enough to ship in weeks, so you learn quickly whether it was the right call."
+      }
+    ]
+  },
+  {
+    "slug": "what-an-mvp-should-include",
+    "title": "What your first release should include, and what it should not",
+    "category": "How we work",
+    "date": "2026-09-17",
+    "readTime": "5 min read",
+    "art": 2,
+    "excerpt": "The first version of an app has one job: prove that people will use it. Everything that does not serve that job can wait for version two.",
+    "body": [
+      {
+        "type": "p",
+        "text": "The most common way a software project goes wrong is not bad code. It is a first release that tries to do everything. It takes four months instead of four weeks, and by the time it launches, the problem has moved."
+      },
+      {
+        "type": "p",
+        "text": "A first release has one job: put a working tool in real hands and prove people will use it. Here is how we decide what makes the cut."
+      },
+      {
+        "type": "h3",
+        "text": "Must have on day one"
+      },
+      {
+        "type": "list",
+        "items": [
+          "The one workflow that causes the most pain today, working end to end",
+          "Sign in, with the right people seeing the right things",
+          "The data you already have, brought across so nobody starts from zero",
+          "A way to see what is happening, even if it is one simple screen",
+          "Works on a phone, because that is where half your team will open it"
+        ]
+      },
+      {
+        "type": "h3",
+        "text": "Can wait for version two"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Every edge case the team can imagine",
+          "Custom themes, animations and settings pages",
+          "Integrations with systems that only one person uses",
+          "Advanced reports nobody has asked for yet",
+          "Features that exist because a competitor has them"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "None of these are bad ideas. They are simply better decided after launch, when real use tells you which ones matter."
+      },
+      {
+        "type": "quote",
+        "text": "Ship the smallest thing that removes the biggest headache. Then listen."
+      },
+      {
+        "type": "h3",
+        "text": "A quick test"
+      },
+      {
+        "type": "p",
+        "text": "For every feature on the list, ask: if this was missing on launch day, would people stop using the app? If the honest answer is no, it goes on the version two list. That list is not a graveyard. It is the plan for the next few weeks, informed by people actually using the thing."
+      }
+    ]
+  },
+  {
+    "slug": "how-fixed-price-projects-work",
+    "title": "How we price fixed price projects, and why it protects you",
+    "category": "Pricing",
+    "date": "2026-09-15",
+    "readTime": "5 min read",
+    "art": 0,
+    "excerpt": "Hourly billing rewards the builder for taking longer. Fixed price puts the risk where it belongs. Here is exactly how we arrive at a number.",
+    "body": [
+      {
+        "type": "p",
+        "text": "When a project is billed by the hour, every surprise is your problem. The estimate was forty hours, it took ninety, and the invoice follows the hours. You carry the risk of a job you cannot see inside."
+      },
+      {
+        "type": "p",
+        "text": "We work the other way. Every project has a price agreed in writing before work begins. Here is how we get there, and what it means for you."
+      },
+      {
+        "type": "h3",
+        "text": "Step one: a short scoping call"
+      },
+      {
+        "type": "p",
+        "text": "We ask about the process, who uses it, what systems it touches and what good looks like on day one. Most of the time, twenty to thirty minutes is enough."
+      },
+      {
+        "type": "h3",
+        "text": "Step two: a written scope"
+      },
+      {
+        "type": "p",
+        "text": "Within a few days you receive a short document: what gets built, what it does on launch, what is deliberately left for later, the timeline in weeks, and the price. No jargon and no padding."
+      },
+      {
+        "type": "h3",
+        "text": "Step three: the price holds"
+      },
+      {
+        "type": "p",
+        "text": "If something takes us longer than planned, that is our problem, not yours. The only thing that changes the price is a change to the scope, and that is always your decision, agreed in writing before any extra work starts."
+      },
+      {
+        "type": "list",
+        "items": [
+          "You know the full cost before you commit",
+          "You can compare it honestly against other options",
+          "There are no surprise invoices mid project",
+          "Changes are visible, deliberate and priced upfront"
+        ]
+      },
+      {
+        "type": "quote",
+        "text": "A fixed price is a promise. It forces both sides to agree on what done looks like before the work starts."
+      },
+      {
+        "type": "h3",
+        "text": "Why this works for us too"
+      },
+      {
+        "type": "p",
+        "text": "It keeps us honest about scope. If we cannot describe the first release clearly enough to price it, it is not ready to build yet, and it is far better to find that out on a call than in week six."
+      }
+    ]
+  },
+  {
+    "slug": "scoping-a-sprint",
+    "title": "A field guide to scoping a two week app sprint",
+    "category": "How we work",
+    "date": "2026-09-12",
+    "readTime": "7 min read",
+    "excerpt": "The fastest way to blow a two week timeline is to scope three workflows and call it one. Here is exactly how we narrow a request down to something that actually ships on time.",
+    "body": [
+      {
+        "type": "p",
+        "text": "Almost every project that comes to us starts the same way: we need an app for tracking X. By the end of a twenty minute call, X has usually split into three or four different things wearing one name."
+      },
+      {
+        "type": "h3",
+        "text": "The tell that a scope is too big"
+      },
+      {
+        "type": "p",
+        "text": "If a workflow needs more than one type of user with meaningfully different permissions, more than one approval stage, and more than one system it has to talk to, it is not one sprint. It is two, and trying to force it into one is how a two week estimate becomes an eight week apology."
+      },
+      {
+        "type": "h3",
+        "text": "What we actually ask on the call"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Who logs the first entry, and what do they see on day one?",
+          "Who approves it, and what happens if they reject it?",
+          "Where does the data need to end up: a dashboard, an export, or another system entirely?",
+          "What is the one thing that, if it did not work on day one, would make this a failure?"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "That last question does more work than the other three combined. It forces a client to name the actual point of the app, instead of the wish list around it."
+      },
+      {
+        "type": "h3",
+        "text": "What gets cut, and why that is good news"
+      },
+      {
+        "type": "p",
+        "text": "Almost every scoping call ends with something removed, not added: the export nobody actually opens monthly, the second approval tier that exists on paper but never triggers in practice, the dashboard view that was requested before anyone had data to put in it. Cutting these is not a downgrade. It is the difference between a tool your team opens every day and a feature nobody remembers to use."
+      },
+      {
+        "type": "p",
+        "text": "A sprint that ships in two weeks is not a smaller version of what you asked for. It is the sharpest version of what you actually need, with everything that was not load bearing removed before the first line of code."
+      }
+    ],
+    "art": 0
+  },
+  {
+    "slug": "whatsapp-approvals-risk",
+    "title": "Approvals over WhatsApp: the compliance risk nobody has written down",
+    "category": "Compliance",
+    "date": "2026-09-05",
+    "readTime": "5 min read",
+    "excerpt": "If your approval trail lives in a chat thread, you do not have an approval process. You have a conversation that happened to end well, so far.",
+    "body": [
+      {
+        "type": "p",
+        "text": "Ask most operations teams how a request gets approved and the honest answer, after enough follow up questions, is a WhatsApp thread or an email chain. Someone asks, someone with authority replies with a thumbs up or a one line yes, and everyone moves on."
+      },
+      {
+        "type": "h3",
+        "text": "Why this works right up until it does not"
+      },
+      {
+        "type": "p",
+        "text": "It works because the people involved trust each other and the decisions are usually correct. It stops working the moment anyone needs to answer a very specific question: who approved this, exactly when, under what version of the request, and what did they actually see before they said yes."
+      },
+      {
+        "type": "h3",
+        "text": "Where this becomes expensive"
+      },
+      {
+        "type": "list",
+        "items": [
+          "A disputed invoice, where the only evidence of sign off is a message that has since been deleted or a phone that has since been replaced.",
+          "A safety incident, where an auditor wants a documented approval chain and finds a text message instead.",
+          "A vendor payment approved by someone who was, on paper, not authorized to approve it, and nobody can say who actually gave the go ahead."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "None of this means the team is careless. It means the approval process was never built as a process. It grew, informally, out of whatever tool was fastest to open."
+      },
+      {
+        "type": "h3",
+        "text": "What an approvals app actually buys you"
+      },
+      {
+        "type": "p",
+        "text": "Not more bureaucracy. The opposite: a request moves through the same number of steps it does today, but each step is logged, timestamped and tied to a specific person's login instead of a phone number. When an auditor or a dispute asks the question, the answer already exists, instead of needing to be reconstructed from memory and screenshots."
+      }
+    ],
+    "art": 2
+  },
+  {
+    "slug": "oracle-fusion-backlog",
+    "title": "Why your Oracle Fusion backlog is six months long",
+    "category": "Process",
+    "date": "2026-07-14",
+    "readTime": "6 min read",
+    "excerpt": "Your ERP partner is not incompetent. They are booked. Here is what is actually happening behind that ticket, and the one move that gets a workflow live without waiting for the queue to clear.",
+    "body": [
+      {
+        "type": "p",
+        "text": "Every Ops or IT manager we talk to describes the same thing in almost the same words. A request goes into the Oracle Fusion partner's queue: one new screen, one workflow, one report that does not exist yet. Six months later, it still has not shipped."
+      },
+      {
+        "type": "h3",
+        "text": "The queue is not a bug"
+      },
+      {
+        "type": "p",
+        "text": "Your Fusion partner is not sitting on your ticket out of neglect. Their business runs on module implementations and large change orders, the kind of work priced in the hundreds of thousands. A one-screen violation tracker for your HSSE team is real work, but it is small work, and small work gets scheduled around the big contracts, not ahead of them. That is not a service failure. It is how the incentives are built."
+      },
+      {
+        "type": "h3",
+        "text": "What gets fast-tracked, and what does not"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Anything tied to a paid module go-live moves first.",
+          "Anything billed under a retainer moves next, in the order it was opened.",
+          "A standalone request for one screen or one workflow, from a team that is not the one paying the big invoice, moves last."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "If your request falls into that third bucket, it is not that nobody wants to help you. It is that you are, structurally, at the back of every queue that partner runs."
+      },
+      {
+        "type": "h3",
+        "text": "The workaround that actually works"
+      },
+      {
+        "type": "p",
+        "text": "The fix is not to escalate harder or find a more responsive partner. It is to stop asking your ERP partner to build small, standalone tools at all, and instead have someone build the workflow as a lightweight app that reads and writes to Oracle Fusion through its API. Your Fusion instance stays exactly as it is. The workflow your team actually needs shows up in two to four weeks instead of two to four quarters."
+      },
+      {
+        "type": "p",
+        "text": "This is the entire premise behind an Oracle Fusion Bridge sprint: one workflow, scoped tightly, connected to the system you already run, built by someone whose only job that month is your ticket."
+      },
+      {
+        "type": "quote",
+        "text": "The problem was never Oracle Fusion. It was asking a platform built for enterprise-wide rollouts to also handle a single team's Tuesday morning workflow."
+      },
+      {
+        "type": "p",
+        "text": "If you are staring down a backlog right now, the question worth asking is not when the ticket will move. It is whether it needs to be a ticket at all."
+      }
+    ],
+    "art": 0
+  },
+  {
+    "slug": "fleet-inspections-paper-cost",
+    "title": "Fleet inspections on paper: what it is actually costing you",
+    "category": "Fleet",
+    "date": "2026-08-25",
+    "readTime": "5 min read",
+    "excerpt": "A paper checklist feels free. It is not. It is a two day reconciliation job wearing a clipboard.",
+    "body": [
+      {
+        "type": "p",
+        "text": "A paper vehicle inspection checklist is the cheapest possible way to start tracking fleet condition, and for a small fleet it is a reasonable way to run things. Past a certain size, the same paper checklist becomes the most expensive part of the process, just in a way that never appears on an invoice."
+      },
+      {
+        "type": "h3",
+        "text": "The hidden reconciliation tax"
+      },
+      {
+        "type": "p",
+        "text": "Someone, usually a fleet coordinator, spends one to two days a week turning stacks of paper checklists into a spreadsheet a regional manager can actually read. That is not fleet management. That is data entry wearing a fleet manager's job title."
+      },
+      {
+        "type": "h3",
+        "text": "What gets lost in the gap"
+      },
+      {
+        "type": "list",
+        "items": [
+          "A vehicle that failed an inspection on Tuesday keeps running until Friday, because the paper has not been transcribed yet.",
+          "Two supervisors report the same defect on two different vehicles, and nobody notices the pattern until a third one fails the same way.",
+          "The regional report presented in Monday's meeting is, structurally, four to six days out of date by the time anyone reads it."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A digital inspection app closes that gap by design, not by discipline. The inspection is the record. There is no second step where someone re-types it into the system that actually matters."
+      },
+      {
+        "type": "p",
+        "text": "For a fleet running Oracle Fusion or another ERP for asset tracking, the app does not replace that system. It feeds it, in real time, from the one place the data actually gets created: the vehicle, at the moment someone is standing in front of it."
+      }
+    ],
+    "art": 1
+  },
+  {
+    "slug": "hsse-spreadsheet-cost",
+    "title": "The real cost of tracking HSSE observations in a spreadsheet",
+    "category": "HSSE",
+    "date": "2026-07-28",
+    "readTime": "5 min read",
+    "excerpt": "A spreadsheet does not fail loudly. It fails quietly, one overwritten row and one missed follow-up at a time, until an audit finds the gap for you.",
+    "body": [
+      {
+        "type": "p",
+        "text": "Ask an HSSE manager how observations get logged and most describe the same system: a shared Excel file, one column per site, one row per incident, updated by whoever got to the laptop first that week."
+      },
+      {
+        "type": "h3",
+        "text": "Where it actually breaks"
+      },
+      {
+        "type": "list",
+        "items": [
+          "Two people editing the same file at once, and one set of entries quietly overwriting the other.",
+          "A site supervisor logging an observation on a phone, in a text message, meaning to add it to the sheet later.",
+          "No enforced closure. A hazard gets logged as open and nobody owns turning it into closed.",
+          "No trend visibility. Nobody can say, in a five minute glance, whether near misses are rising on a specific site."
+        ]
+      },
+      {
+        "type": "h3",
+        "text": "Why this stays hidden until it does not"
+      },
+      {
+        "type": "p",
+        "text": "None of this shows up as a problem in a normal month. It shows up the day an auditor asks for a closure trail on a specific incident from four months ago, and the only record is a cell that somebody overwrote in March."
+      },
+      {
+        "type": "h3",
+        "text": "What replaces it"
+      },
+      {
+        "type": "p",
+        "text": "An HSSE observation tracker does three things a spreadsheet cannot: it enforces who can log, edit and close an observation, it timestamps every change instead of quietly overwriting the last one, and it gives a site or regional manager a live view instead of a monthly export. Built as a real app, wired into the same Oracle Fusion or ERP instance your compliance team already reports out of, it becomes the system of record instead of a side file nobody trusts."
+      },
+      {
+        "type": "p",
+        "text": "None of this requires ripping out anything you already run. It requires one workflow, built once, used every day."
+      }
+    ],
+    "art": 2
+  }
+]

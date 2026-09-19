@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact · Solviqo</title>
+<meta name="description" content="Book a call with Solviqo. Pick the meeting that matches where you are: discovery, technical scoping, or a proposal walkthrough.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Crect width='240' height='240' rx='48' fill='%230D1117'/%3E%3Cg transform='translate(70,168) rotate(-25) scale(0.62)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%235B6474' stroke-width='18'/%3E%3C/g%3E%3Cg transform='translate(118,128) rotate(-12) scale(0.82)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%239AA4B2' stroke-width='18'/%3E%3C/g%3E%3Cg transform='translate(172,72) rotate(2) scale(1.05)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%23F4F6FA' stroke-width='18'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .meet-card{ display:flex; flex-direction:column; gap:16px; }
+  .meet-top{ display:flex; align-items:center; justify-content:space-between; }
+  .meet-dur{ font-family:var(--font-mono); font-size:12px; color:var(--text-3); }
+  .meet-card h3{ font-size:20px; }
+  .meet-card p{ font-size:14.5px; color:var(--text-2); flex:1; }
+  .expect-row{ display:flex; gap:16px; align-items:flex-start; padding:18px 0; border-bottom:1px solid var(--line); }
+  .expect-row:last-child{ border-bottom:none; }
+  .expect-n{ font-family:var(--font-mono); font-size:13px; color:var(--amber); flex:none; width:26px; padding-top:2px; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><linearGradient id="gradChrome" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#B9C6DA"/><stop offset="45%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#8CA0BE"/></linearGradient></defs>
+</svg>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 240 240" class="brand-mark" aria-hidden="true">
+        <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g>
+        <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g>
+        <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g>
+      </svg>
+      <span class="brand-word">Solviqo</span>
+    </a>
+    <div class="nav-right">
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a call</a>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="ln"></span><span class="ln"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="navLinks" class="nav-links">
+  <div class="container nav-links-inner">
+    <nav>
+      <a href="index.html"><span class="idx">01</span>Home</a>
+      <a href="about.html"><span class="idx">02</span>About</a>
+      <a href="services.html"><span class="idx">03</span>Services</a>
+      <a href="case-studies.html"><span class="idx">04</span>Case Studies</a>
+      <a href="blog.html"><span class="idx">05</span>Blog</a>
+      <a href="contact.html" class="active"><span class="idx">06</span>Contact</a>
+    </nav>
+    <div class="nav-foot">
+      <a href="mailto:studio@solviqo.com">studio@solviqo.com</a>
+      <a href="contact.html" class="btn btn-primary">Book a call</a>
+      <span>Dubai, UAE</span>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <section class="hero" style="padding-bottom:40px;">
+    <div class="container" style="max-width:700px;">
+      <span class="eyebrow">Contact</span>
+      <h1 style="font-size:46px;margin-top:18px;">Let's find the one workflow worth fixing first.</h1>
+      <p class="lede">Twenty minutes is usually enough to know if this is a fit. Pick the call that matches where you are, no form to fill out first.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="grid-3">
+
+        <div class="card meet-card">
+          <div class="meet-top"><span class="tag amber">Discovery Call</span><span class="meet-dur">20 min</span></div>
+          <h3>Not sure where to start</h3>
+          <p>Walk us through what's currently broken, on paper, in a spreadsheet, or somewhere in between, and we'll tell you honestly whether a sprint fixes it.</p>
+          <!-- Replace with your real Calendly or Cal.com booking link -->
+          <a href="https://cal.com/solviqo/discovery-call" class="btn btn-primary btn-block">Select a time</a>
+        </div>
+
+        <div class="card meet-card">
+          <div class="meet-top"><span class="tag amber">Technical Scoping</span><span class="meet-dur">30 min</span></div>
+          <h3>Ready to move</h3>
+          <p>We'll define the exact workflow, the Oracle Fusion or ERP touchpoints involved, and leave the call with a fixed price and a start date.</p>
+          <!-- Replace with your real Calendly or Cal.com booking link -->
+          <a href="https://cal.com/solviqo/technical-scoping" class="btn btn-primary btn-block">Select a time</a>
+        </div>
+
+        <div class="card meet-card">
+          <div class="meet-top"><span class="tag amber">Proposal Walkthrough</span><span class="meet-dur">30 min</span></div>
+          <h3>Already have a scope</h3>
+          <p>If you've received a written proposal from us, let's go through it line by line, and answer whatever it raises, before you sign anything.</p>
+          <!-- Replace with your real Calendly or Cal.com booking link -->
+          <a href="https://cal.com/solviqo/proposal-walkthrough" class="btn btn-primary btn-block">Select a time</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--ink-900);">
+    <div class="container" style="max-width:900px;display:grid;grid-template-columns:1fr 1fr;gap:56px;">
+      <div>
+        <span class="eyebrow">What to expect</span>
+        <div style="margin-top:20px;">
+          <div class="expect-row"><span class="expect-n">01</span><p>You describe the workflow. We ask enough questions to know if it's one sprint or several, and say so plainly.</p></div>
+          <div class="expect-row"><span class="expect-n">02</span><p>If it's a fit, you get a written scope and a fixed price within a few days, not a follow up call to schedule a follow up call.</p></div>
+          <div class="expect-row"><span class="expect-n">03</span><p>If it's not a fit, we tell you that too. Some requests need an ERP partner, not a sprint studio, and we'll say which.</p></div>
+        </div>
+      </div>
+      <div>
+        <span class="eyebrow">Prefer email</span>
+        <div class="card" style="margin-top:20px;">
+          <h3 style="font-size:18px;">studio@solviqo.com</h3>
+          <p>Include the workflow you're trying to fix and roughly how many people touch it. That's usually enough for a useful first reply.</p>
+          <a href="mailto:studio@solviqo.com?subject=Scoping%20a%20workflow" class="btn btn-ghost btn-block">Send an email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <svg viewBox="0 0 240 240" class="brand-mark" aria-hidden="true">
+            <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g>
+            <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g>
+            <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g>
+          </svg>
+          <span class="brand-word">Solviqo</span>
+        </a>
+        <p>Operational apps for industrial teams across the Gulf. Fleet, HSSE, compliance and approvals, live in weeks, not quarters.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Studio</h4>
+        <ul><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="case-studies.html">Case Studies</a></li><li><a href="blog.html">Blog</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul><li><a href="services.html#ops-app-sprint">Ops App Sprint</a></li><li><a href="services.html#oracle-fusion-bridge">Oracle Fusion Bridge</a></li><li><a href="services.html#dashboard-sprint">Dashboard Sprint</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul><li><a href="mailto:studio@solviqo.com">studio@solviqo.com</a></li><li><a href="contact.html">Book a call</a></li><li><span class="muted">Dubai, UAE</span></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>SOLVIQO STUDIO &copy; 2026. BUILT ON THE SAME PRINCIPLE AS EVERYTHING WE SHIP.</p>
+      <p>OPERATIONAL SOFTWARE, GULF / MIDDLE EAST</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

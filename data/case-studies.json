@@ -1,0 +1,328 @@
+[
+  {
+    "slug": "government-violation-management",
+    "industry": "Construction & Contracting",
+    "title": "Every government violation answered inside the deadline, and the cost recovered",
+    "summary": "A contractor facing a steady stream of government safety and site violations, with 10 days to respond, 45 days to settle, and nothing but email and spreadsheets to keep track.",
+    "tags": [
+      "Compliance",
+      "Finance recovery",
+      "Ops App Sprint"
+    ],
+    "stats": [
+      {
+        "v": "10 / 45 days",
+        "l": "response and settlement windows, now watched by the system"
+      },
+      {
+        "v": "4 teams",
+        "l": "Facility, Projects, Finance and Management on one view"
+      },
+      {
+        "v": "3 weeks",
+        "l": "scope to live"
+      }
+    ],
+    "art": 0,
+    "challenge": "A violation would appear on a government portal and then start a paper chase. Someone had to spot it, check it, find out which project it belonged to, chase that team for a response, and remember the clock was already running. Deadlines lived in personal trackers. When a case went unpaid or was rejected, nobody could say who had seen it last. Penalties that should have been charged back to the subcontractor responsible were often never recovered, simply because there was no record connecting the fine to the party who caused it. Finance only found out about payments after the fact.",
+    "approach": "We gave every violation one home and one owner. The moment a case is logged it is routed to the right project team, who respond in the same place with their evidence attached. The system counts down the response and settlement windows so nobody has to, and escalates anything drifting toward a missed deadline. Facility, Projects, Finance and Management each open the app and see only what they need to act on. Finance gets its own view of every penalty paid, refunded and recovered.",
+    "outcome": "Deadlines stopped depending on someone's memory. Every case now carries a complete history, from the first notice through the government's decision to the final recovery from the subcontractor, so an auditor's question has a ready answer instead of a week of digging. Penalty costs that used to be absorbed are now traced back and charged to the party responsible.",
+    "flow": [
+      {
+        "s": "Spot",
+        "t": "A violation appears on the government portal",
+        "who": "Facility"
+      },
+      {
+        "s": "Verify",
+        "t": "Checked and opened as a case",
+        "who": "Facility"
+      },
+      {
+        "s": "Notify",
+        "t": "The right project team is alerted instantly",
+        "who": "System",
+        "sys": true
+      },
+      {
+        "s": "Respond",
+        "t": "Team replies with evidence inside 10 days",
+        "who": "Projects"
+      },
+      {
+        "s": "Decision",
+        "t": "Authority accepts or rejects the objection",
+        "who": "Authority",
+        "d": true,
+        "alt": "Rejected or unpaid, escalated automatically"
+      },
+      {
+        "s": "Settle",
+        "t": "Penalty paid inside the 45 day window",
+        "who": "Finance"
+      },
+      {
+        "s": "Recover",
+        "t": "Cost charged back to the responsible subcontractor",
+        "who": "Finance"
+      },
+      {
+        "s": "Audit",
+        "t": "Every step on record, ready for any review",
+        "who": "Management"
+      }
+    ],
+    "before": [
+      "Deadlines tracked in personal spreadsheets",
+      "Project teams chased by email, one by one",
+      "Penalties paid and never recovered"
+    ],
+    "after": [
+      "The system counts down every deadline",
+      "The right team is notified the moment a case opens",
+      "Every fine traced back and recovered"
+    ],
+    "demo": "demos/gvm.html"
+  },
+  {
+    "slug": "facility-accommodation-management",
+    "industry": "Facilities Management",
+    "title": "Every room, desk and warehouse bay across every site, live in one place",
+    "summary": "An operator housing thousands of staff across camps, offices and warehouses, with allocation done by hand and contract expiries tracked from memory.",
+    "tags": [
+      "Accommodation",
+      "HR sync",
+      "Ops App Sprint"
+    ],
+    "stats": [
+      {
+        "v": "3,100+",
+        "l": "employee records kept current from HR, automatically"
+      },
+      {
+        "v": "3 in 1",
+        "l": "rooms, offices and warehouses in a single request flow"
+      },
+      {
+        "v": "4 weeks",
+        "l": "scope to live"
+      }
+    ],
+    "art": 2,
+    "challenge": "Finding someone a bed meant checking a spreadsheet that was already out of date, because it was copied by hand from HR instead of pulled from it. Office and warehouse space ran on the same guesswork. Leases and licences for rooms and stores expired quietly because the only reminder was whoever happened to remember. Checkouts had no sign off, and reassigning a room had to respect housing rules that lived only in the camp boss's head. Management could not see occupancy across sites without asking three people.",
+    "approach": "We put accommodation, office and warehouse space into one request and approval flow, so the right person approves the right thing and nothing gets lost in a chat thread. Staff records now arrive straight from the HR system, so the name on the bed is always the right one. Housing rules are built into allocation, not remembered. A daily digest warns the team about every contract and licence before it lapses, and checkouts follow a proper approval path. Camp bosses, receptionists and store keepers each get a view built for their job.",
+    "outcome": "Occupancy across every site is now visible at a glance, with pending check ins, free beds and upcoming expiries on one screen and exportable in a click. No licence has to lapse because someone forgot, and nobody retypes a staff list from HR again. The team spends its time placing people, not reconciling files.",
+    "flow": [
+      {
+        "s": "Request",
+        "t": "Room, desk or warehouse space requested",
+        "who": "Project"
+      },
+      {
+        "s": "Approve",
+        "t": "Routed to the right approver",
+        "who": "Manager"
+      },
+      {
+        "s": "Allocate",
+        "t": "Space assigned, housing rules applied",
+        "who": "Camp Boss"
+      },
+      {
+        "s": "Check in",
+        "t": "Arrival confirmed at reception",
+        "who": "Receptionist"
+      },
+      {
+        "s": "Occupancy",
+        "t": "Every site updates live",
+        "who": "System",
+        "sys": true
+      },
+      {
+        "s": "Expiry alert",
+        "t": "Contracts and licences flagged before they lapse",
+        "who": "System",
+        "sys": true
+      },
+      {
+        "s": "Check out",
+        "t": "Departure approved, space released",
+        "who": "Camp Boss",
+        "d": true,
+        "alt": "Nothing leaves without sign off"
+      }
+    ],
+    "before": [
+      "Staff lists copied by hand from HR",
+      "Licences expired without warning",
+      "Occupancy known only by asking around"
+    ],
+    "after": [
+      "3,100+ staff records synced from HR automatically",
+      "A daily digest flags every expiry in advance",
+      "Live occupancy across every site on one screen"
+    ],
+    "demo": "demos/fms.html"
+  },
+  {
+    "slug": "maintenance-observation-management",
+    "industry": "Oil & Gas",
+    "title": "Maintenance issues that actually reach closed, with the spend approved on the way",
+    "summary": "A maintenance process running on paper forms, email and personal follow ups, where observations went quiet and nobody could say what was overdue.",
+    "tags": [
+      "Maintenance",
+      "Cost approval",
+      "Ops App Sprint"
+    ],
+    "stats": [
+      {
+        "v": "5 roles",
+        "l": "each seeing exactly their part of the job"
+      },
+      {
+        "v": "Every step",
+        "l": "recorded with who acted, when, and why"
+      },
+      {
+        "v": "3 weeks",
+        "l": "scope to live"
+      }
+    ],
+    "art": 1,
+    "challenge": "An observation raised on site would start on a form, move by email, and then depend on someone remembering to chase it. The old maintenance system was hard to use on a phone, so most people avoided it. There was no standard way to estimate the cost of a fix or decide who could approve it, which meant small jobs waited on big approvals and big jobs slipped through without one. Overdue items were invisible until someone complained, and the same faults kept coming back because nobody could see the pattern.",
+    "approach": "We turned the whole journey into one guided flow. Anyone can raise an observation from their phone in under a minute, with their own and their project's details filled in for them. It lands with the right reviewer automatically. The maintenance team inspects it and prices the fix, and spend under the agreed threshold goes straight through while anything above it is routed to the budget team. Rejected work comes back for correction instead of disappearing. Nothing is marked done until the person who raised it is satisfied.",
+    "outcome": "Every observation now has a visible owner and a place in the queue, from open through to closed. Managers see what is pending, what is overdue and where money is waiting for approval, all live, with reports ready to export. Repeat problems finally show up as a pattern, and the full history of every job is there when anyone asks.",
+    "flow": [
+      {
+        "s": "Raise",
+        "t": "Observation raised from a phone in a minute",
+        "who": "Raiser"
+      },
+      {
+        "s": "Route",
+        "t": "Sent to the right reviewer automatically",
+        "who": "System",
+        "sys": true
+      },
+      {
+        "s": "Inspect",
+        "t": "Maintenance inspects and prices the fix",
+        "who": "Maintenance"
+      },
+      {
+        "s": "Approve spend",
+        "t": "Under the threshold goes straight through",
+        "who": "Cost Control",
+        "d": true,
+        "alt": "Above the threshold, routed to budget"
+      },
+      {
+        "s": "Fix",
+        "t": "Corrective work done and submitted",
+        "who": "Maintenance"
+      },
+      {
+        "s": "Review",
+        "t": "Accepted, or sent back for rework",
+        "who": "Project Manager"
+      },
+      {
+        "s": "Close",
+        "t": "Closed only when the raiser is satisfied",
+        "who": "Raiser"
+      }
+    ],
+    "before": [
+      "Paper forms and email follow ups",
+      "No standard way to price or approve a fix",
+      "Overdue work invisible until someone complained"
+    ],
+    "after": [
+      "One guided flow from raise to close",
+      "Spend approved at the right level, automatically",
+      "Overdue and pending work visible live"
+    ],
+    "demo": "demos/moms.html"
+  },
+  {
+    "slug": "fleet-preinspection-visibility",
+    "industry": "Logistics & Fleet",
+    "title": "Know where every machine is, what state it is in, and who is fixing it",
+    "summary": "Heavy equipment moving between suppliers and project sites, with inspections, approvals and breakdowns handled over calls and email.",
+    "tags": [
+      "Fleet",
+      "Procurement",
+      "Oracle Fusion Bridge"
+    ],
+    "stats": [
+      {
+        "v": "4 teams",
+        "l": "Fleet, Supplier, Project and Procurement on one thread"
+      },
+      {
+        "v": "Live",
+        "l": "status of every asset, on every site"
+      },
+      {
+        "v": "4 weeks",
+        "l": "scope to live"
+      }
+    ],
+    "art": 2,
+    "challenge": "Getting a machine onto site meant a chain of calls between the fleet team, the supplier, the project and procurement. Inspection photos and supplier documents arrived in inboxes and stayed there. Nobody could say, with confidence, whether a piece of equipment had been approved, where it had been delivered, or why it was sitting idle. When something broke down, the supplier found out late and the project waited longer than it needed to. Management had no single picture of what equipment was working across the business.",
+    "approach": "We gave every asset one record that follows it from the first request to the day it leaves site. Suppliers upload their documents and photos directly, the fleet team works through a proper inspection checklist, and anything that fails goes back to the supplier to fix. Fleet, project and procurement approve in order, and approved requests flow on into purchasing. The project team confirms delivery when it arrives. Report a breakdown and the supplier, fleet and procurement are told at once.",
+    "outcome": "Every machine now shows its real status, mobilized, working, broken down or demobilized, on every site, without a single phone call. Follow ups between four teams became a shared record. Breakdowns get to the people who can fix them straight away, and management can finally see the whole fleet, and what it costs, in one place.",
+    "flow": [
+      {
+        "s": "Request",
+        "t": "Project asks for equipment",
+        "who": "Project"
+      },
+      {
+        "s": "Documents",
+        "t": "Supplier uploads papers and photos",
+        "who": "Supplier"
+      },
+      {
+        "s": "Inspect",
+        "t": "Fleet checks it against the checklist",
+        "who": "Fleet",
+        "d": true,
+        "alt": "Fails, goes back to the supplier to fix"
+      },
+      {
+        "s": "Approve",
+        "t": "Fleet, project and procurement sign off",
+        "who": "Procurement"
+      },
+      {
+        "s": "Mobilize",
+        "t": "Delivered, receipt confirmed on site",
+        "who": "Project"
+      },
+      {
+        "s": "Live status",
+        "t": "Working, down or demobilized, visible live",
+        "who": "System",
+        "sys": true
+      },
+      {
+        "s": "Breakdown",
+        "t": "One report alerts supplier, fleet and procurement",
+        "who": "Project"
+      }
+    ],
+    "before": [
+      "Chains of calls between four teams",
+      "Inspection photos lost in inboxes",
+      "Nobody sure where a machine actually was"
+    ],
+    "after": [
+      "One record follows every machine",
+      "Inspection and approval in a single flow",
+      "Live status of every asset on every site"
+    ],
+    "demo": "demos/fleet.html"
+  }
+]

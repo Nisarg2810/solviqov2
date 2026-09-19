@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brand Guidelines · Solviqo</title>
+<meta name="description" content="The Solviqo identity system: the Sweep mark, the chrome and amber palette, type, voice, and applications, as used across the live site.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Crect width='240' height='240' rx='48' fill='%230D1117'/%3E%3Cg transform='translate(70,168) rotate(-25) scale(0.62)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%235B6474' stroke-width='18'/%3E%3C/g%3E%3Cg transform='translate(118,128) rotate(-12) scale(0.82)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%239AA4B2' stroke-width='18'/%3E%3C/g%3E%3Cg transform='translate(172,72) rotate(2) scale(1.05)'%3E%3Cpolyline points='-27,-30 28,0 -27,30' fill='none' stroke='%23F4F6FA' stroke-width='18'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800;900&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  body{ font-size:16px; }
+  .guide-shell{ display:grid; grid-template-columns:240px 1fr; max-width:1320px; margin:0 auto; }
+  .rail{ position:sticky; top:88px; align-self:start; height:calc(100vh - 88px); overflow-y:auto; padding:36px 20px 40px 32px; display:flex; flex-direction:column; gap:26px; border-right:1px solid var(--line); }
+  .rail-nav{ display:flex; flex-direction:column; gap:2px; }
+  .rail-nav a{ display:flex; gap:10px; font-size:13.5px; color:var(--text-2); padding:8px 10px; border-radius:6px; border-left:2px solid transparent; }
+  .rail-nav a .n{ font-family:var(--font-mono); font-size:11px; color:var(--text-3); width:18px; flex:none; }
+  .rail-nav a:hover{ background:var(--ink-900); color:var(--text-1); }
+  .rail-nav a.active{ color:var(--text-1); border-left-color:var(--amber); background:var(--ink-900); }
+  .rail-foot{ font-family:var(--font-mono); font-size:10px; color:var(--text-3); line-height:1.8; border-top:1px solid var(--line); padding-top:14px; }
+  .gmain{ min-width:0; }
+
+  .gsection{ padding:64px 48px; border-bottom:1px solid var(--line); scroll-margin-top:16px; }
+  .ghead{ display:flex; align-items:baseline; gap:14px; margin-bottom:30px; }
+  .ghead .gnum{ font-family:var(--font-mono); color:var(--text-3); font-size:14px; }
+  .ghead h2{ font-size:26px; }
+  .gintro{ max-width:620px; color:var(--text-2); font-size:15px; margin-bottom:6px; }
+
+  .cover{ padding:76px 48px 56px; }
+  .cover .kicker{ margin-bottom:22px; }
+  .cover-mark{ display:flex; align-items:center; gap:16px; margin-bottom:30px; }
+  .cover-mark svg{ width:56px; height:56px; overflow:visible; }
+  .cover-mark span{ font-family:var(--font-display); font-weight:700; font-size:34px; }
+  .cover h1{ font-size:38px; max-width:16ch; margin-bottom:16px; }
+  .cover p{ font-size:16px; color:var(--text-2); max-width:56ch; }
+
+  .concept-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-bottom:20px; }
+  .concept{ border:1px solid var(--line); border-radius:10px; padding:22px; background:var(--ink-900); position:relative; }
+  .concept.picked{ border-color:var(--amber); box-shadow:0 0 0 1px var(--amber); }
+  .concept .badge{ position:absolute; top:-10px; right:16px; background:var(--amber); color:#1A0F02; font-family:var(--font-mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; padding:3px 9px; border-radius:3px; font-weight:700; }
+  .concept svg{ width:58px; height:58px; overflow:visible; margin-bottom:12px; }
+  .concept h4{ font-size:14.5px; margin-bottom:6px; }
+  .concept p{ font-size:12.5px; color:var(--text-2); }
+
+  .construction-wrap{ display:grid; grid-template-columns:280px 1fr; gap:36px; align-items:center; border:1px solid var(--line); border-radius:10px; padding:36px; background:var(--ink-900); }
+  .construction-wrap svg{ width:100%; overflow:visible; }
+  .cnote{ display:flex; gap:10px; font-size:13px; margin-bottom:16px; }
+  .cnote .dot{ width:8px; height:8px; border-radius:2px; background:var(--amber); flex:none; margin-top:5px; }
+  .cnote b{ display:block; font-size:12.5px; font-family:var(--font-mono); letter-spacing:.02em; }
+  .cnote span{ color:var(--text-2); }
+
+  .lockup-tile{ border:1px solid var(--line); border-radius:10px; padding:36px; display:flex; align-items:center; justify-content:center; min-height:150px; position:relative; }
+  .lockup-tile .cap{ position:absolute; bottom:12px; left:16px; font-family:var(--font-mono); font-size:10.5px; color:var(--text-3); text-transform:uppercase; letter-spacing:.04em; }
+  .on-ink{ background:var(--ink-950); }
+  .on-panel{ background:var(--ink-900); }
+  .on-chip{ background:#0D1117; }
+  .lockup-h{ display:flex; align-items:center; gap:14px; }
+  .lockup-h svg{ width:44px; height:44px; overflow:visible; }
+  .lockup-h span{ font-family:var(--font-display); font-weight:700; font-size:24px; }
+
+  .suite-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:16px; }
+  .suite-grid.two{ grid-template-columns:1fr 1fr; }
+
+  .fav-row{ display:flex; align-items:flex-end; gap:26px; padding:32px; border:1px solid var(--line); border-radius:10px; background:#0D1117; }
+  .fav-item{ display:flex; flex-direction:column; align-items:center; gap:8px; }
+  .fav-item .px{ font-family:var(--font-mono); font-size:10.5px; color:var(--text-3); }
+
+  .misuse-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  .misuse{ border:1px solid var(--line); border-radius:10px; padding:26px; background:#0D1117; display:flex; align-items:center; justify-content:center; min-height:110px; }
+  .misuse svg{ width:54px; height:54px; overflow:visible; }
+  .misuse-cap{ font-size:12px; color:var(--text-2); margin-top:10px; text-align:center; }
+
+  .swatch{ border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--ink-900); }
+  .swatch .fill{ height:100px; }
+  .swatch .info{ padding:14px 16px; }
+  .swatch .name{ font-weight:600; font-size:14px; margin-bottom:8px; }
+  .swatch .val{ display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:11px; color:var(--text-2); padding:2px 0; }
+  .swatch .val b{ color:var(--text-3); font-weight:400; }
+  .swatch .usage{ font-size:12px; color:var(--text-2); margin-top:10px; padding-top:10px; border-top:1px solid var(--line); }
+
+  .spec-table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  .spec-table th{ text-align:left; font-family:var(--font-mono); font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--text-3); padding:0 12px 10px 0; font-weight:500; border-bottom:1px solid var(--line); }
+  .spec-table td{ padding:12px 12px 12px 0; border-bottom:1px solid var(--line); color:var(--text-2); vertical-align:top; }
+  .spec-table td:first-child{ color:var(--text-1); font-weight:500; }
+
+  .type-specimen{ border-bottom:1px solid var(--line); padding:26px 0; display:grid; grid-template-columns:150px 1fr; gap:24px; align-items:baseline; }
+  .type-specimen:first-child{ padding-top:0; }
+  .type-specimen .meta{ font-family:var(--font-mono); font-size:11px; color:var(--text-3); }
+  .type-specimen .meta b{ display:block; color:var(--text-2); font-size:12.5px; margin-bottom:4px; }
+
+  @media (max-width:900px){
+    .guide-shell{ grid-template-columns:1fr; }
+    .rail{ position:relative; height:auto; top:0; }
+    .gsection,.cover{ padding:44px 22px; }
+    .concept-grid,.suite-grid,.misuse-grid,.construction-wrap{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs><linearGradient id="gradChrome" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#B9C6DA"/><stop offset="45%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#8CA0BE"/></linearGradient></defs>
+</svg>
+
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="index.html" class="brand">
+      <svg viewBox="0 0 240 240" class="brand-mark" aria-hidden="true">
+        <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g>
+        <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g>
+        <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g>
+      </svg>
+      <span class="brand-word">Solviqo</span>
+    </a>
+    <div class="nav-right">
+      <a href="contact.html" class="btn btn-primary btn-sm">Book a call</a>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="ln"></span><span class="ln"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="navLinks" class="nav-links">
+  <div class="container nav-links-inner">
+    <nav>
+      <a href="index.html"><span class="idx">01</span>Home</a>
+      <a href="about.html"><span class="idx">02</span>About</a>
+      <a href="services.html"><span class="idx">03</span>Services</a>
+      <a href="case-studies.html"><span class="idx">04</span>Case Studies</a>
+      <a href="blog.html"><span class="idx">05</span>Blog</a>
+      <a href="contact.html"><span class="idx">06</span>Contact</a>
+    </nav>
+    <div class="nav-foot">
+      <a href="mailto:studio@solviqo.com">studio@solviqo.com</a>
+      <a href="contact.html" class="btn btn-primary">Book a call</a>
+      <span>Dubai, UAE</span>
+    </div>
+  </div>
+</div>
+
+<div class="guide-shell">
+
+  <aside class="rail">
+    <nav class="rail-nav" id="railnav">
+      <a href="#cover" class="active"><span class="n">00</span>Cover</a>
+      <a href="#rationale"><span class="n">01</span>Rationale</a>
+      <a href="#mark"><span class="n">02</span>Mark System</a>
+      <a href="#suite"><span class="n">03</span>Logo Suite</a>
+      <a href="#color"><span class="n">04</span>Color</a>
+      <a href="#type"><span class="n">05</span>Typography</a>
+      <a href="#voice"><span class="n">06</span>Voice &amp; Offers</a>
+      <a href="#apps"><span class="n">07</span>Applications</a>
+      <a href="#govern"><span class="n">08</span>Governance</a>
+    </nav>
+    <div class="rail-foot">VERSION 2.0<br>REPLACES V1.0 (SEGMENT MARK)<br>ISSUED 2026-09-17<br>SOLVIQO STUDIO</div>
+  </aside>
+
+  <main class="gmain">
+
+    <section class="cover" id="cover">
+      <div class="eyebrow kicker">Identity Standards · Version 2.0</div>
+      <div class="cover-mark">
+        <svg viewBox="0 0 240 240" aria-hidden="true">
+          <path d="M70,168 Q120,95 172,72" fill="none" stroke="#5B6474" stroke-width="1.5" stroke-dasharray="3 4" opacity="0.35"/>
+          <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g>
+          <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g>
+          <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g>
+        </svg>
+        <span>Solviqo</span>
+      </div>
+      <h1>The Sweep mark, standardized.</h1>
+      <p>This version replaces the earlier segment-S identity. The Sweep mark, three chevrons rising along a gauge arc, is now the system of record for the logo, the color palette and every application shown below. Everything here is what actually ships on the live site.</p>
+    </section>
+
+    <!-- 01 RATIONALE -->
+    <section class="gsection" id="rationale">
+      <div class="ghead"><span class="gnum mono">01</span><h2>Rationale</h2></div>
+      <p class="gintro">Why this mark, and why chrome and amber instead of the ink and fog system it replaces.</p>
+      <div class="grid-2" style="margin-top:28px;">
+        <div class="card">
+          <h3 style="font-size:16px;">Why the Sweep mark</h3>
+          <p>Three chevrons, increasing in size and brightness, bent onto the arc a gauge needle actually travels. It reads as speed and as instrumentation at once, the two things a company promising four week delivery to a fleet and HSSE audience needs to say without saying them.</p>
+        </div>
+        <div class="card">
+          <h3 style="font-size:16px;">Why chrome and amber</h3>
+          <p>Brushed chrome on near black reads as precision hardware, not consumer software. Amber is the one warm signal in the system, reserved for calls to action and live status, echoing the safety amber already on every hard hat and hazard sign our clients work around daily.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 MARK SYSTEM -->
+    <section class="gsection" id="mark">
+      <div class="ghead"><span class="gnum mono">02</span><h2>Mark System</h2></div>
+      <p class="gintro">The Sweep mark is built from one repeating unit chevron, scaled, rotated and positioned along a fixed arc. No freehand curves.</p>
+
+      <div class="construction-wrap">
+        <svg viewBox="0 0 240 240">
+          <g opacity=".4" stroke="#5B6474" stroke-width="0.5">
+            <line x1="0" y1="60" x2="240" y2="60"/><line x1="0" y1="120" x2="240" y2="120"/><line x1="0" y1="180" x2="240" y2="180"/>
+            <line x1="60" y1="0" x2="60" y2="240"/><line x1="120" y1="0" x2="120" y2="240"/><line x1="180" y1="0" x2="180" y2="240"/>
+          </g>
+          <path d="M70,168 Q120,95 172,72" fill="none" stroke="#E8890C" stroke-width="1" stroke-dasharray="3 4" opacity="0.6"/>
+          <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g>
+          <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g>
+          <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g>
+        </svg>
+        <div>
+          <div class="cnote"><span class="dot"></span><div><b>UNIT CHEVRON</b><span>One shape, points "-27,-30 28,0 -27,30", reused at three scales: 0.62, 0.82 and 1.05.</span></div></div>
+          <div class="cnote"><span class="dot"></span><div><b>ARC PATH</b><span>Centers sit on the quadratic curve M70,168 Q120,95 172,72, rotated -25&deg;, -12&deg; and 2&deg; to follow the arc's own tangent.</span></div></div>
+          <div class="cnote"><span class="dot"></span><div><b>BRIGHTNESS RAMP</b><span>Steel dim to steel mid to a brushed chrome gradient. Each step in size is also a step in contrast.</span></div></div>
+          <div class="cnote"><span class="dot"></span><div><b>SQUARE CAPS ONLY</b><span>stroke-linecap: square on every segment. Rounded caps are not an approved variant.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 LOGO SUITE -->
+    <section class="gsection" id="suite">
+      <div class="ghead"><span class="gnum mono">03</span><h2>Logo Suite</h2></div>
+      <p class="gintro">Every approved lockup and context. If it is not shown here, it is not an approved use of the mark.</p>
+
+      <div class="eyebrow" style="margin:6px 0 12px;">Primary lockup</div>
+      <div class="suite-grid two" style="margin-bottom:30px;">
+        <div class="lockup-tile on-ink">
+          <div class="lockup-h">
+            <svg viewBox="0 0 240 240"><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g></svg>
+            <span>Solviqo</span>
+          </div>
+          <span class="cap">Horizontal · on Ink #07080C</span>
+        </div>
+        <div class="lockup-tile on-panel">
+          <div class="lockup-h">
+            <svg viewBox="0 0 240 240"><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g></svg>
+            <span>Solviqo</span>
+          </div>
+          <span class="cap">Horizontal · on Panel #0C0E14</span>
+        </div>
+      </div>
+
+      <div class="eyebrow" style="margin:6px 0 12px;">Icon only, wordmark only, monochrome</div>
+      <div class="suite-grid" style="margin-bottom:30px;">
+        <div class="lockup-tile on-chip">
+          <svg viewBox="0 0 240 240" style="width:84px;height:84px;"><rect width="240" height="240" rx="48" fill="#0D1117"/><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g></svg>
+          <span class="cap">Icon chip · app icon, favicon</span>
+        </div>
+        <div class="lockup-tile on-ink">
+          <span style="font-family:var(--font-display);font-weight:700;font-size:30px;">Solviqo</span>
+          <span class="cap">Wordmark only</span>
+        </div>
+        <div class="lockup-tile on-panel">
+          <svg viewBox="0 0 240 240" style="width:70px;height:70px;"><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#F4F6FA" stroke-width="18" stroke-linecap="square"/></g></svg>
+          <span class="cap">Monochrome · single color print</span>
+        </div>
+      </div>
+
+      <div class="eyebrow" style="margin:6px 0 12px;">Favicon and app icon sizes</div>
+      <div class="fav-row" style="margin-bottom:30px;">
+        <div class="fav-item"><svg viewBox="0 0 240 240" width="16" height="16"><rect width="240" height="240" rx="48" fill="#0D1117"/><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#F4F6FA" stroke-width="18" stroke-linecap="square"/></g></svg><span class="px">16</span></div>
+        <div class="fav-item"><svg viewBox="0 0 240 240" width="32" height="32"><rect width="240" height="240" rx="48" fill="#0D1117"/><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g></svg><span class="px">32</span></div>
+        <div class="fav-item"><svg viewBox="0 0 240 240" width="48" height="48"><rect width="240" height="240" rx="48" fill="#0D1117"/><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g></svg><span class="px">48</span></div>
+        <div class="fav-item"><svg viewBox="0 0 240 240" width="64" height="64"><rect width="240" height="240" rx="48" fill="#0D1117"/><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g></svg><span class="px">64</span></div>
+        <div class="fav-item"><svg viewBox="0 0 240 240" width="128" height="128"><rect width="240" height="240" rx="48" fill="#0D1117"/><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g></svg><span class="px">128</span></div>
+      </div>
+
+      <div class="eyebrow" style="margin:6px 0 12px;">Minimum size &amp; clear space</div>
+      <table class="spec-table" style="margin-bottom:30px;">
+        <tr><th>Context</th><th>Minimum</th></tr>
+        <tr><td>Clear space, all sides</td><td class="mono">0.5X, where X = icon chip height</td></tr>
+        <tr><td>Digital, icon only</td><td class="mono">16px</td></tr>
+        <tr><td>Digital, full lockup</td><td class="mono">100px wide</td></tr>
+        <tr><td>Print, icon only</td><td class="mono">8mm</td></tr>
+        <tr><td>Print, full lockup</td><td class="mono">26mm wide</td></tr>
+      </table>
+
+      <div class="eyebrow" style="margin:6px 0 12px;">Misuse</div>
+      <div class="misuse-grid">
+        <div>
+          <div class="misuse"><svg viewBox="0 0 240 240"><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#E15B45" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#3FBE85" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5C87F2" stroke-width="18" stroke-linecap="square"/></g></svg></div>
+          <p class="misuse-cap">Don't recolor outside chrome and amber</p>
+        </div>
+        <div>
+          <div class="misuse"><svg viewBox="0 0 240 240" style="transform:rotate(180deg);"><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g></svg></div>
+          <p class="misuse-cap">Don't flip or rotate the sweep direction</p>
+        </div>
+        <div>
+          <div class="misuse"><svg viewBox="0 0 240 240"><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6474" stroke-width="18" stroke-linecap="round"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="round"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="round"/></g></svg></div>
+          <p class="misuse-cap">Don't round the chevron caps</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 COLOR -->
+    <section class="gsection" id="color">
+      <div class="ghead"><span class="gnum mono">04</span><h2>Color System</h2></div>
+      <p class="gintro">A near black ground, a three step chrome family taken directly from the mark, and one amber accent that never becomes decoration.</p>
+
+      <div class="eyebrow" style="margin-bottom:12px;">Surfaces</div>
+      <div class="grid-3" style="margin-bottom:30px;">
+        <div class="swatch"><div class="fill" style="background:#07080C;"></div><div class="info"><div class="name">Ink 950</div><div class="val"><b>HEX</b>#07080C</div><div class="usage">Page background, default ground for the whole site.</div></div></div>
+        <div class="swatch"><div class="fill" style="background:#0C0E14;"></div><div class="info"><div class="name">Ink 900</div><div class="val"><b>HEX</b>#0C0E14</div><div class="usage">Cards, alternating sections, the icon chip.</div></div></div>
+        <div class="swatch"><div class="fill" style="background:#12151D;"></div><div class="info"><div class="name">Ink 800</div><div class="val"><b>HEX</b>#12151D</div><div class="usage">Elevated surfaces nested inside a panel.</div></div></div>
+      </div>
+
+      <div class="eyebrow" style="margin-bottom:12px;">Chrome family (from the mark)</div>
+      <div class="grid-3" style="margin-bottom:30px;">
+        <div class="swatch"><div class="fill" style="background:#5B6474;"></div><div class="info"><div class="name">Chrome 1, dim</div><div class="val"><b>HEX</b>#5B6474</div><div class="usage">Smallest chevron, secondary text, borders.</div></div></div>
+        <div class="swatch"><div class="fill" style="background:#9AA4B2;"></div><div class="info"><div class="name">Chrome 2, mid</div><div class="val"><b>HEX</b>#9AA4B2</div><div class="usage">Middle chevron, muted UI text.</div></div></div>
+        <div class="swatch"><div class="fill" style="background:#D8E0EC;"></div><div class="info"><div class="name">Chrome 3, bright</div><div class="val"><b>HEX</b>#D8E0EC</div><div class="usage">Highlight edge of the gradient chevron.</div></div></div>
+      </div>
+
+      <div class="eyebrow" style="margin-bottom:12px;">Accent &amp; semantic, use sparingly</div>
+      <div class="grid-3">
+        <div class="swatch"><div class="fill" style="background:#E8890C;"></div><div class="info"><div class="name">Amber</div><div class="val"><b>HEX</b>#E8890C</div><div class="val"><b>RGB</b>232, 137, 12</div><div class="usage">Every button, every "live" indicator, the one warm note. Never a background fill.</div></div></div>
+        <div class="swatch"><div class="fill" style="background:#3FBE85;"></div><div class="info"><div class="name">Verified Green</div><div class="val"><b>HEX</b>#3FBE85</div><div class="usage">Success and compliant states only.</div></div></div>
+        <div class="swatch"><div class="fill" style="background:#E15B45;"></div><div class="info"><div class="name">Alert Red</div><div class="val"><b>HEX</b>#E15B45</div><div class="usage">Critical and violation states only.</div></div></div>
+      </div>
+    </section>
+
+    <!-- 05 TYPE -->
+    <section class="gsection" id="type">
+      <div class="ghead"><span class="gnum mono">05</span><h2>Typography</h2></div>
+      <p class="gintro">Three roles, three faces. Rajdhani carries the mark's own angularity into every headline.</p>
+
+      <div style="margin-bottom:30px;">
+        <div class="type-specimen"><div class="meta"><b>Display / Headings</b>Rajdhani<br>Bold 700</div><div style="font-family:'Rajdhani';font-weight:700;font-size:34px;">Live in four weeks or less.</div></div>
+        <div class="type-specimen"><div class="meta"><b>Body</b>IBM Plex Sans<br>Regular 400</div><div style="font-family:'IBM Plex Sans';font-size:16px;max-width:50ch;color:var(--text-2);">Solviqo builds the fleet, HSSE, compliance and approvals apps your operations team actually needs.</div></div>
+        <div class="type-specimen"><div class="meta"><b>Technical / Labels</b>IBM Plex Mono<br>Regular · Medium</div><div class="mono" style="font-size:14px;">STATUS: LIVE &middot; SPRINT: OPS-04 &middot; SHIPPED: 2026-09-17</div></div>
+      </div>
+
+      <div class="eyebrow" style="margin-bottom:12px;">Fallback stack</div>
+      <div class="mono" style="font-size:12.5px;color:var(--text-2);">"Rajdhani", -apple-system, "Helvetica Neue", Arial, sans-serif<br>"IBM Plex Sans", -apple-system, "Helvetica Neue", Arial, sans-serif<br>"IBM Plex Mono", "SFMono-Regular", Consolas, monospace</div>
+    </section>
+
+    <!-- 06 VOICE -->
+    <section class="gsection" id="voice">
+      <div class="ghead"><span class="gnum mono">06</span><h2>Voice &amp; Offers</h2></div>
+      <p class="gintro">Unchanged from version one: precise, not clever. Engineered, not experimental. Name the actual gap. Confident, not loud.</p>
+      <div class="grid-3" style="margin-top:26px;">
+        <div class="card"><span class="num">OFFER 01</span><h3 style="font-size:17px;">Ops App Sprint</h3><p>One workflow, deployed in 2 to 3 weeks, fixed price.</p></div>
+        <div class="card"><span class="num">OFFER 02</span><h3 style="font-size:17px;">Oracle Fusion Bridge</h3><p>An API-connected app for the process Fusion won't handle natively.</p></div>
+        <div class="card"><span class="num">OFFER 03</span><h3 style="font-size:17px;">Dashboard Sprint</h3><p>Live reporting from your existing data, in 1 to 2 weeks.</p></div>
+      </div>
+    </section>
+
+    <!-- 07 APPLICATIONS -->
+    <section class="gsection" id="apps">
+      <div class="ghead"><span class="gnum mono">07</span><h2>Applications</h2></div>
+      <p class="gintro">The system as it actually ships, not a rendering of it. Every page on this site uses exactly these tokens.</p>
+
+      <div class="suite-grid" style="margin-top:26px;">
+        <div>
+          <div class="lockup-tile on-chip" style="min-height:190px;flex-direction:column;gap:10px;">
+            <div style="width:240px;border-radius:8px;overflow:hidden;border:1px solid var(--line);">
+              <div style="background:#E4E8EA;padding:6px 8px;display:flex;gap:5px;"><span style="width:6px;height:6px;border-radius:50%;background:#C3CAD5;display:block;"></span><span style="width:6px;height:6px;border-radius:50%;background:#C3CAD5;display:block;"></span><span style="width:6px;height:6px;border-radius:50%;background:#C3CAD5;display:block;"></span></div>
+              <div style="background:var(--ink-950);padding:12px 14px;display:flex;align-items:center;gap:8px;">
+                <svg viewBox="0 0 240 240" style="width:18px;height:18px;"><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="url(#gradChrome)" stroke-width="18" stroke-linecap="square"/></g></svg>
+                <span style="font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--text-1);">Solviqo</span>
+              </div>
+            </div>
+          </div>
+          <span class="cap" style="position:static;display:block;margin-top:10px;">Website header, as built</span>
+        </div>
+
+        <div>
+          <div class="lockup-tile on-ink" style="min-height:190px;">
+            <div style="width:220px;height:126px;border-radius:8px;background:var(--ink-950);border:2px solid var(--amber);padding:16px;display:flex;flex-direction:column;justify-content:space-between;">
+              <div style="display:flex;align-items:center;gap:7px;"><svg viewBox="0 0 240 240" style="width:16px;height:16px;"><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#F4F6FA" stroke-width="18" stroke-linecap="square"/></g></svg><span style="font-family:var(--font-display);font-weight:700;font-size:12px;">Solviqo</span></div>
+              <div><div style="font-size:9px;color:var(--text-1);font-weight:600;">Nisarg Mehta</div><div class="mono" style="font-size:7.5px;color:var(--text-3);margin-top:6px;">studio@solviqo.com</div></div>
+            </div>
+          </div>
+          <span class="cap" style="position:static;display:block;margin-top:10px;">Business card, front</span>
+        </div>
+
+        <div>
+          <div class="lockup-tile on-ink" style="min-height:190px;">
+            <div style="width:220px;aspect-ratio:16/9;background:var(--ink-950);border-radius:8px;border:1px solid var(--line);padding:18px;display:flex;flex-direction:column;justify-content:space-between;">
+              <div style="display:flex;align-items:center;gap:6px;"><svg viewBox="0 0 240 240" style="width:14px;height:14px;"><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9AA4B2" stroke-width="18" stroke-linecap="square"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#F4F6FA" stroke-width="18" stroke-linecap="square"/></g></svg><span style="font-family:var(--font-display);font-weight:700;font-size:10.5px;">Solviqo</span></div>
+              <div><div style="font-family:var(--font-display);font-weight:700;font-size:13px;color:var(--text-1);">Fleet Sprint · Proposal</div><div class="mono" style="font-size:7px;color:var(--text-3);margin-top:6px;">PREPARED FOR REGIONAL OPS TEAM</div></div>
+            </div>
+          </div>
+          <span class="cap" style="position:static;display:block;margin-top:10px;">Proposal deck cover</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 GOVERNANCE -->
+    <section class="gsection" id="govern" style="border-bottom:none;">
+      <div class="ghead"><span class="gnum mono">08</span><h2>Governance</h2></div>
+      <p class="gintro">The short version of everything above.</p>
+      <div class="grid-2" style="margin-top:26px;">
+        <div>
+          <div class="eyebrow" style="margin-bottom:12px;">Always</div>
+          <ul class="post-list">
+            <li>Use the exact unit chevron and arc coordinates, never redrawn by eye</li>
+            <li>Keep the brightness ramp, dim to mid to chrome, in that order</li>
+            <li>Reserve amber for buttons and live status only</li>
+          </ul>
+        </div>
+        <div>
+          <div class="eyebrow" style="margin-bottom:12px;">Never</div>
+          <ul class="post-list">
+            <li>Recolor, rotate or round the chevrons</li>
+            <li>Set the wordmark in anything but Rajdhani</li>
+            <li>Use green or red decoratively, they are status colors only</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <p>SOLVIQO BRAND GUIDELINES, VERSION 2.0, ISSUED 2026-09-17</p>
+      <p>SOLVIQO STUDIO</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+  (function(){
+    var links = Array.prototype.slice.call(document.querySelectorAll('#railnav a'));
+    var sections = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+    if(!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var idx = sections.indexOf(entry.target);
+        if(idx === -1 || !entry.isIntersecting) return;
+        links.forEach(function(l){ l.classList.remove('active'); });
+        links[idx].classList.add('active');
+      });
+    }, { rootMargin: '-10% 0px -70% 0px', threshold: 0 });
+    sections.forEach(function(s){ if(s) io.observe(s); });
+  })();
+</script>
+</body>
+</html>
