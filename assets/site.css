@@ -1499,3 +1499,55 @@ mark{background:linear-gradient(transparent 60%,rgba(232,137,12,.42) 60%,rgba(23
 .pk-bl2{width:122px;left:-56px;bottom:-60px}
 .pk-bl2 .pp-rocket{left:auto;right:-30px;top:-22px}
 @media(max-width:600px){.pk-l{left:-18px;width:96px}.pk-bl2{left:-12px;width:96px}}
+
+/* ============ Oti variants (staging) ============ */
+.has-ot{position:relative;overflow:visible!important}
+.ot{position:absolute;z-index:5;pointer-events:none}
+.ot-o{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 14px rgba(0,0,0,.35))}
+.ot-p{position:absolute;width:44%;right:-14%;top:-6%;filter:drop-shadow(0 6px 8px rgba(0,0,0,.3));animation:pkTilt 2.6s ease-in-out infinite}
+.ot-o[src*="flip"]~.ot-p{right:auto;left:-14%}
+.ot-peek{animation:pkBob 3.4s ease-in-out infinite}
+.ot-float{animation:otiFloat 4s ease-in-out infinite}
+.ot-wave .ot-o{transform-origin:50% 85%;animation:otiWaveHi .6s ease-in-out infinite alternate}
+.ot-hang{transform-origin:50% -40px;animation:otHang 3.2s ease-in-out infinite}
+.ot-hang::before{content:"";position:absolute;left:50%;top:-44px;width:2px;height:50px;background:linear-gradient(#a07850,#c9a27a);border-radius:2px}
+.ot-hang .ot-o{transform:rotate(180deg)}
+.ot-hang .ot-p{top:auto;bottom:-22%;left:28%;right:auto;width:44%}
+@keyframes otHang{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+.ot-sleep{animation:otiFloat 5.5s ease-in-out infinite}
+.ot-sleep .ot-o{filter:drop-shadow(0 10px 14px rgba(0,0,0,.35)) saturate(.9)}
+.ot-sleep .ot-p{top:-34%;right:-6%;width:40%;animation:otZz 2.4s ease-in-out infinite}
+@keyframes otZz{0%{opacity:0;transform:translate(0,6px) scale(.8)}40%{opacity:1}100%{opacity:0;transform:translate(10px,-14px) scale(1.05)}}
+.ot-sign .ot-sign,.ot .ot-sign{position:absolute;left:50%;bottom:16%;transform:translateX(-50%) rotate(-5deg);z-index:2}
+.ot-sign b,.nf-sign b{display:block;font:700 24px/1 'Caveat',cursive;color:#3b2a1d;white-space:nowrap;padding:8px 14px 6px;border-radius:9px;
+  background:#fff6e4;border:2px solid #d9b58a;box-shadow:0 8px 16px -6px rgba(0,0,0,.45)}
+.ot-sign b::after{content:"";position:absolute;left:50%;top:100%;width:5px;height:26px;margin-left:-2.5px;background:#a07850;border-radius:0 0 3px 3px;z-index:-1}
+.ot-sign{animation:pkBob 3.6s ease-in-out infinite}
+.ot-doodle{position:absolute;left:-40%;bottom:-30px;font:700 22px 'Caveat',cursive;color:var(--amber-400);white-space:nowrap;transform:rotate(-6deg)}
+.nf-sign{display:inline-block;transform:rotate(-5deg);margin:-26px 0 10px;position:relative;z-index:2}
+@media(max-width:1100px){.ot-hide-sm{display:none}}
+@media(max-width:700px){.ot{max-width:84px}.ot-doodle,.ot .ot-sign b{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.ot,.ot *{animation:none!important}}
+
+/* footer link hover */
+.foot-col a,.foot-brand a,.nav-foot a{position:relative;display:inline-block;transition:color .25s var(--ease),transform .25s var(--ease)}
+.foot-col a::after{content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1.5px;background:var(--amber-500);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease)}
+.foot-col a:hover{color:var(--amber-400);transform:translateX(3px)}
+.foot-col a:hover::after{transform:scaleX(1)}
+.foot-col a:focus-visible{color:var(--amber-400);outline:2px solid var(--amber-500);outline-offset:3px;border-radius:3px}
+/* dressed Oti */
+.ot-rig,.pk-rig{width:100%}
+.ot-rig svg,.pk-rig svg,[data-oti] svg{display:block;width:100%;height:auto;overflow:visible}
+.ot.flip .oti-svg,.peek.flip .oti-svg{transform:scaleX(-1)}
+.oti-svg .oti-eye{transform-box:fill-box;transform-origin:center;animation:moBlink 4.6s infinite}
+.oti-svg .oti-zz{animation:otZz 2.4s ease-in-out infinite}
+.oti-wardrobe{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.ow{padding:14px 10px 16px;border-radius:var(--r-md);border:1px solid var(--line-2);text-align:center;
+  background:radial-gradient(70% 60% at 50% 40%,rgba(232,137,12,.14),transparent 70%),var(--ink-850);transition:transform .3s var(--spring),border-color .3s}
+.ow:hover{transform:translateY(-4px) rotate(-1deg);border-color:var(--amber-500)}
+.ow [data-oti]{width:140px;margin:0 auto;animation:pkBob 3.6s ease-in-out infinite}
+.ow:nth-child(2n) [data-oti]{animation-delay:-1.2s}.ow:nth-child(3n) [data-oti]{animation-delay:-2.1s}
+.ow b{display:block;font-size:15px;margin-top:8px}.ow small{font-size:12.5px;color:var(--t3)}
+.cta-art{height:260px;border-radius:20px;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 45%,rgba(232,137,12,.28),transparent 70%),radial-gradient(80% 80% at 80% 100%,rgba(76,125,255,.22),transparent 70%),var(--ink-900);border:1px solid var(--line-2)}
+.cta-art svg{width:150px;height:150px;overflow:visible;animation:otiFloat 4s ease-in-out infinite;filter:drop-shadow(0 20px 30px rgba(0,0,0,.45))}
+h1 .squig svg{bottom:-8px;height:12px}

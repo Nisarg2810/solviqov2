@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600;700&display=swap">
-<link rel="stylesheet" href="assets/site.css?v=25">
+<link rel="stylesheet" href="assets/site.css?v=28">
 <script>(function(){try{var t=localStorage.getItem('solviqo-theme');if(!t)t=matchMedia('(prefers-color-scheme: light)').matches?'light':'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <script>try{if(!sessionStorage.getItem('sv-seen')&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('is-loading');}catch(e){}</script>
 </head>
@@ -81,33 +81,40 @@
 
 <main id="main" tabindex="-1">
 
-  <section class="hero">
-    <div class="wrap hero-grid">
+  <section class="ho-hero">
+    <div class="wrap ho-hgrid">
       <div class="rev">
         <span class="kick"><b>01</b> Custom software studio, India</span>
-        <h1 class="chrome-text">Software that fits your business, shipped in weeks.</h1>
-        <p class="lede">Solviqo designs and builds the web apps, internal tools, portals and integrations your business actually needs, at a fixed price and on a date we put in writing. Your team stops working around its software and starts working in it.</p>
-        <div class="hero-cta">
-          <a class="btn btn-primary btn-lg" href="contact.html">Book a scoping call<span class="shine"></span></a>
-          <a class="btn btn-ghost btn-lg" href="services.html">See what we build</a>
-        </div>
+        <h1 class="ho-h1" data-split="1">Software that <span class="squig">actually<svg viewBox="0 0 200 14" preserveAspectRatio="none"><path d="M2 8 Q 12 2 22 8 T 42 8 T 62 8 T 82 8 T 102 8 T 122 8 T 142 8 T 162 8 T 182 8 T 198 8"/></svg></span> fits your business.</h1>
+        <p class="lede">We design and build the web apps, internal tools and integrations your team needs, at a <mark>fixed price</mark>, live in <mark>about four weeks</mark>.</p>
+        <div class="hero-cta"><a class="btn btn-primary btn-lg" href="contact.html">Book a 20 minute call<span class="shine"></span></a><a class="btn btn-ghost btn-lg" href="services.html#estimate">Estimate my build</a></div>
+        <p class="ho-small">No proposal decks. No hourly billing. Just a straight answer.</p>
       </div>
-      <div class="hero-art" id="heroArt">
-        <span class="halo" aria-hidden="true"></span>
-        <span class="ring r1" aria-hidden="true"><i></i></span>
-        <span class="ring r2" aria-hidden="true"><i></i></span>
-        <svg class="hero-mark" viewBox="0 0 240 240" aria-hidden="true">
-          <path d="M70,168 Q120,95 172,72" fill="none" stroke="#3D4757" stroke-width="1.5" stroke-dasharray="4 5"/>
-          <g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#5B6779" stroke-width="18" stroke-linecap="square"/></g>
-          <g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#9FAABA" stroke-width="18" stroke-linecap="square"/></g>
-          <g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" fill="none" stroke="#E2E8F0" stroke-width="18" stroke-linecap="square"/></g>
-        </svg>
+      <div class="ho-visual rev">
+        <div class="app-card">
+          <div class="ac-bar"><i></i><i></i><i></i><span>app.yourcompany.com</span></div>
+          <div class="ac-body">
+            <div class="ac-top"><b>Operations</b><span class="ac-live"><i></i>Live</span></div>
+            <div class="ac-k"><div><small>Requests</small><b data-count="1284" data-dec="0">0</b></div><div><small>On time</small><b><span data-count="98" data-dec="0">0</span>%</b></div><div><small>Avg approval</small><b>2 min</b></div></div>
+            <div class="ac-list">
+              <p><span class="dot a"></span>12 laptops, design team<em class="st pend">Awaiting approval</em></p>
+              <p><span class="dot g"></span>Site inspection, Tower B<em class="st ok">Done</em></p>
+              <p><span class="dot b"></span>Supplier invoice 212<em class="st ok">Paid</em></p>
+              <p><span class="dot a"></span>Room request, Camp North<em class="st new">New</em></p>
+            </div>
+            <div class="ac-chart"><i style="--h:38%"></i><i style="--h:52%"></i><i style="--h:44%"></i><i style="--h:66%"></i><i style="--h:58%"></i><i style="--h:80%"></i><i style="--h:92%" class="hi"></i></div>
+          </div>
+        </div>
+        
+        <span class="doodle d-hero">live in 4 weeks <svg class="dd-arrow" viewBox="0 0 90 60"><path d="M4 8 C 30 4, 60 14, 70 44" /><path d="M58 38 L 71 46 L 76 32" /></svg></span>
       </div>
     </div>
   </section>
 
-  <div class="marq" aria-hidden="true"><div class="marq-track"><span>Web apps</span><span>Customer portals</span><span>Internal tools</span><span>Workflow automation</span><span>ERP and CRM integrations</span><span>Approval systems</span><span>New product MVPs</span><span>Live dashboards</span><span>Web apps</span><span>Customer portals</span><span>Internal tools</span><span>Workflow automation</span><span>ERP and CRM integrations</span><span>Approval systems</span><span>New product MVPs</span><span>Live dashboards</span></div></div>
-
+  <section class="ho-strip">
+    <div class="wrap"><p>Built for teams who have outgrown spreadsheets in</p>
+      <div class="ho-chips"><span>Construction</span><span>Facilities</span><span>Logistics</span><span>Oil and gas</span><span>Healthcare</span><span>Retail</span><span>New products</span></div></div>
+  </section>
   <section class="sec tight">
     <div class="wrap">
       <div class="stats rev">
@@ -117,7 +124,6 @@
       </div>
     </div>
   </section>
-
   <section class="sec">
     <div class="wrap">
       <div class="sec-h rev">
@@ -125,10 +131,9 @@
         <h2>What we build, in one minute.</h2>
         <p>From a business held together by spreadsheets to one app your whole team runs on. Press play, or let it run.</p>
       </div>
-      <div class="rev"><iframe class="demo-frame reel" data-src="demos/showreel.html?v=3" title="One minute showreel of what Solviqo builds" loading="lazy"></iframe></div>
+      <div class="rev has-ot" style="position:relative"><iframe class="demo-frame reel" data-src="demos/showreel.html?v=3" title="One minute showreel of what Solviqo builds" loading="lazy"></iframe></div>
     </div>
   </section>
-
   <section class="sec">
     <div class="wrap">
       <div class="sec-h rev">
@@ -136,7 +141,7 @@
         <h2>Most businesses outgrow their software long before they can justify a big IT project.</h2>
         <p>Off the shelf tools cover the first eighty percent. The rest, the part that makes your business yours, ends up in spreadsheets, group chats and someone's memory.</p>
       </div>
-      <div class="grid3 stag">
+      <div class="grid3 stag has-ot">
         <div class="card" data-tilt="7">
           <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path class="i-hr" d="M12 12l3.2 2.4"/><path class="i-min" d="M12 12V6"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
           <span class="num">01</span><h3>The long queue</h3>
@@ -155,7 +160,6 @@
       </div>
     </div>
   </section>
-
   <section class="story" id="story">
     <div class="story-track">
       <div class="story-sticky">
@@ -206,47 +210,55 @@
       </div>
     </div>
   </section>
-
-  <section class="sec">
+<section class="sec ho-rows"><div class="wrap">
+    <div class="ho-row">
+      <div class="ho-copy rev"><span class="kick"><b>05</b> What we build</span><h2>Web apps your customers actually enjoy</h2><p>Customer portals, <mark>booking and ordering systems</mark>, and new products taken from idea to a first release people pay for.</p><a class="card-link" href="services.html">See what is included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="ho-cardwrap rev"><div class="mock"><div class="mk-h"><b>Book a service</b><span class="pill">Customer portal</span></div>
+  <div class="cal7"><span class="">12</span><span class="x">13</span><span class="">14</span><span class="">15</span><span class="">16</span><span class="on">17</span><span class="">18</span><span class="">19</span><span class="">20</span><span class="x">21</span><span class="">22</span><span class="">23</span><span class="">24</span><span class="">25</span></div>
+  <div class="slots"><span>09:00</span><span class="on">11:30</span><span>14:00</span><span>16:30</span></div><span class="mk-btn">Confirm booking</span></div></div>
+    </div>
+    <div class="ho-row flip">
+      <div class="ho-copy rev"><span class="kick"><b>06</b> What we build</span><h2>Internal tools that end the spreadsheet</h2><p>The process living in files and chat threads, rebuilt as one app with <mark>approvals, reminders and a full history</mark> of who did what.</p><a class="card-link" href="services.html">See what is included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="ho-cardwrap rev"><div class="mock"><div class="mk-h"><b>Request #218</b><span class="pill amber">Awaiting you</span></div>
+  <div class="flow3"><span class="ok">Requested</span><i></i><span class="now">Approve</span><i></i><span>Ordered</span></div>
+  <div class="aud"><p>Priya raised it<em>09:12</em></p><p>Budget check passed automatically<em>09:12</em></p><p>Reminder sent to Arjun<em>09:40</em></p></div>
+  <div class="two"><span class="mk-btn ghost">Send back</span><span class="mk-btn">Approve</span></div></div><span class="doodle d-tool">no more v7_FINAL.xlsx!</span></div>
+    </div>
+    <div class="ho-row">
+      <div class="ho-copy rev"><span class="kick"><b>07</b> What we build</span><h2>Integrations that stop the copy and paste</h2><p>Your ERP, CRM, HR and finance tools talking to each other, so information is <mark>entered once and shows up everywhere</mark>.</p><a class="card-link" href="services.html">See what is included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="ho-cardwrap rev"><div class="mock hubm"><div class="mk-h"><b>Connected tools</b><span class="pill green">6 of 6 synced</span></div>
+  <div class="hub6"><span>CRM</span><span>ERP</span><span>Payments</span><span class="mid">Your app</span><span>HR</span><span>Email</span><span>Accounts</span></div>
+  <p class="mk-note">Order created in the app, invoice raised in accounts, customer updated in the CRM. Typed once.</p></div></div>
+    </div>
+    <div class="ho-row flip">
+      <div class="ho-copy rev"><span class="kick"><b>08</b> What we build</span><h2>Dashboards people actually open</h2><p>The numbers you chase before every meeting, <mark>live on one screen</mark> and always up to date.</p><a class="card-link" href="services.html">See what is included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <div class="ho-cardwrap rev"><div class="mock"><div class="mk-h"><b>This month</b><span class="pill green">Up 12%</span></div>
+  <div class="kp3"><div><small>Orders</small><b>1,284</b></div><div><small>Revenue</small><b>$412k</b></div><div><small>On time</small><b>98%</b></div></div>
+  <svg class="spark" viewBox="0 0 300 90" preserveAspectRatio="none"><path class="ar" d="M0 80 L40 70 L80 72 L120 52 L160 48 L200 34 L240 30 L300 8 L300 90 L0 90Z"/><path class="ln" d="M0 80 L40 70 L80 72 L120 52 L160 48 L200 34 L240 30 L300 8"/></svg></div></div>
+    </div></div></section>
+  <section class="sec ho-on">
     <div class="wrap">
-      <div class="sec-h rev">
-        <span class="kick"><b>05</b> What we build</span>
-        <h2>Four ways we help.</h2>
-        <p>Start with the one that matches the problem you actually have.</p>
-      </div>
-      <div class="rev">
-        <a class="row" href="services.html#web-apps">
-          <div class="idx">01</div>
-          <div><h3 class="chrome-text">Web Apps</h3><p>Customer portals, booking and ordering systems, and new products taken from idea to launch. Fast, secure and easy to use on any screen.</p></div>
-          <div class="meta"><span class="badge amber">4 to 8 weeks</span><span class="badge">Fixed price</span><span class="card-link">See what's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-        </a>
-        <a class="row" href="services.html#internal-tools">
-          <div class="idx">02</div>
-          <div><h3 class="chrome-text">Internal Tools</h3><p>The workflow that lives in a spreadsheet today, rebuilt as a proper app with approvals, alerts and a full history of who did what.</p></div>
-          <div class="meta"><span class="badge amber">2 to 4 weeks</span><span class="badge">Fixed price</span><span class="card-link">See what's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-        </a>
-        <a class="row" href="services.html#integrations">
-          <div class="idx">03</div>
-          <div><h3 class="chrome-text">Integrations</h3><p>Your ERP, CRM, HR and finance tools talking to each other, so data is entered once and shows up everywhere it is needed.</p></div>
-          <div class="meta"><span class="badge amber">2 to 4 weeks</span><span class="badge signal">Any system with an API</span><span class="card-link">See what's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-        </a>
-        <a class="row" href="services.html#dashboards">
-          <div class="idx">04</div>
-          <div><h3 class="chrome-text">Dashboards</h3><p>The numbers you check every week, live on one screen, so nobody compiles a report by hand before a meeting again.</p></div>
-          <div class="meta"><span class="badge amber">1 to 2 weeks</span><span class="badge">Fixed price</span><span class="card-link">See what's included <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
-        </a>
+      <div class="sec-h rev" style="text-align:center;margin-left:auto;margin-right:auto"><span class="kick" style="justify-content:center"><b>09</b> Before and after</span><h2>Everything your team needs, without the chaos</h2></div>
+      <div class="on-tabs rev" role="tablist"><button type="button" role="tab" class="on" data-t="0">Tracking</button><button type="button" role="tab" class="" data-t="1">Approvals</button><button type="button" role="tab" class="" data-t="2">Reporting</button><button type="button" role="tab" class="" data-t="3">Integrations</button></div>
+      <div class="on-card rev">
+        <span class="doodle d-on1">the new way</span><span class="doodle d-on2">I &hearts; Solviqo</span>
+        <div class="on-pane on" data-p="0"><div><small>OLD WAY</small><p>Work lived in spreadsheets, group chats and someone's memory. Nobody fully trusted the numbers.</p></div><div><small>NEW WAY</small><p>One app with one live list. Every request has an owner, a status and a <mark>full history</mark>.</p></div></div><div class="on-pane" data-p="1"><div><small>OLD WAY</small><p>Sign offs happened over email and WhatsApp, and nobody could prove who approved what, or when.</p></div><div><small>NEW WAY</small><p>Approvals in <mark>one tap from a phone</mark>, with reminders that chase people for you.</p></div></div><div class="on-pane" data-p="2"><div><small>OLD WAY</small><p>Someone lost a day building a report before every meeting, and it was out of date by lunch.</p></div><div><small>NEW WAY</small><p>Live dashboards that update themselves, so meetings <mark>start with answers</mark>.</p></div></div><div class="on-pane" data-p="3"><div><small>OLD WAY</small><p>The same details typed into three systems by three people, with a mistake at every handover.</p></div><div><small>NEW WAY</small><p>Your tools connected, so data is <mark>entered once</mark> and appears everywhere it is needed.</p></div></div>
+        
       </div>
     </div>
   </section>
-
-  <section class="sec">
+  <section class="ho-stats">
+    <div class="wrap"><p class="st-h">What a Solviqo project looks like, on average</p>
+      <div class="flip-row"><div class="flip-card"><div class="flip"><span class="fd" data-d="4"><b>0</b></span><span class=fs>wk</span></div><p>weeks from scope to live</p></div><div class="flip-card"><div class="flip"><span class="fd" data-d="1"><b>0</b></span><span class="fd" data-d="0"><b>0</b></span><span class="fd" data-d="0"><b>0</b></span><span class=fs>%</span></div><p>of projects on a fixed price</p></div><div class="flip-card"><div class="flip"><span class="fd" data-d="0"><b>0</b></span></div><p>surprise invoices, ever</p></div>
+        </div></div>
+  </section>  <section class="sec">
     <div class="wrap">
       <div class="sec-h rev">
-        <span class="kick"><b>06</b> Proof, not promises</span>
+        <span class="kick"><b>10</b> Proof, not promises</span>
         <h2>Real systems, in use every day.</h2>
         <p>We keep client names private. Every number here comes straight from projects we have shipped.</p>
       </div>
-      <div class="proof stag">
+      <div class="proof stag has-ot">
         <div class="pf-n"><div class="v"><span data-count="4" data-dec="0">0</span></div><div class="l">Business systems live and in daily use</div></div>
         <div class="pf-n"><div class="v"><span data-count="3.1" data-dec="1">0</span>k+</div><div class="l">Staff records kept in sync automatically</div></div>
         <div class="pf-n"><div class="v"><span data-count="4" data-dec="0">0</span> wks</div><div class="l">Longest time from scope to live so far</div></div>
@@ -261,11 +273,10 @@
       </div>
     </div>
   </section>
-
   <section class="sec">
     <div class="wrap">
-      <div class="sec-h rev">
-        <span class="kick"><b>07</b> Recent work</span>
+      <div class="sec-h rev has-ot">
+        <span class="kick"><b>11</b> Recent work</span>
         <h2>What this looks like once it is running.</h2>
         <p>A few of the systems we have shipped. Client names are withheld by agreement, the scope and outcomes are exactly as delivered.</p>
       </div>
@@ -276,8 +287,16 @@
 
   <section class="sec">
     <div class="wrap">
-      <div class="sec-h rev">
-        <span class="kick"><b>08</b> From the studio</span>
+      <div class="note-card rev">
+        <p class="q">"Small, obviously useful tools kept waiting months in someone's backlog. Solviqo exists to ship them in weeks, at a price you know before we start."</p>
+        <div class="who"><span class="av">NM</span><div><b>Nisarg Mehta</b><small>Founder, Solviqo</small></div></div>
+        <span class="doodle d-note">that is a promise</span>
+      </div>
+    </div>
+  </section>  <section class="sec">
+    <div class="wrap">
+      <div class="sec-h rev has-ot">
+        <span class="kick"><b>12</b> From the studio</span>
         <h2>Notes on building software that fits.</h2>
       </div>
       <div class="grid2 stag" id="homePosts"></div>
@@ -287,14 +306,13 @@
 
   <section class="sec">
     <div class="wrap">
-      <div class="panel pad rev" style="text-align:center;padding:72px 34px">
-        <h2 class="chrome-text" style="font-size:clamp(28px,3.4vw,44px)">Stop working around your software.</h2>
-        <p style="color:var(--t2);margin:20px auto 0;max-width:52ch;font-size:17px">Twenty minutes is enough to know if we are a fit. No proposal, no obligation, just a straight answer.</p>
-        <div style="margin-top:32px"><a class="btn btn-primary btn-lg" href="contact.html">Book a scoping call<span class="shine"></span></a></div>
+      <div class="ho-cta rev">
+        <div><h2>Stop working around your software.</h2><p>Twenty minutes is enough to know if we are a fit. Nisarg reads every message personally.</p>
+          <div class="hero-cta"><a class="btn btn-primary btn-lg" href="contact.html">Book a call<span class="shine"></span></a><a class="btn btn-ghost btn-lg" href="case-studies.html">See our work</a></div></div>
+        <div class="cta-art" aria-hidden="true"><svg viewBox="0 0 240 240"><g fill="none" stroke-width="18" stroke-linecap="square"><g transform="translate(70,168) rotate(-25) scale(0.62)"><polyline points="-27,-30 28,0 -27,30" stroke="#5B6779"/></g><g transform="translate(118,128) rotate(-12) scale(0.82)"><polyline points="-27,-30 28,0 -27,30" stroke="#9FAABA"/></g><g transform="translate(172,72) rotate(2) scale(1.05)"><polyline points="-27,-30 28,0 -27,30" stroke="#E8890C"/></g></g></svg></div>
       </div>
     </div>
   </section>
-
 </main>
 
 <footer class="site-footer">
@@ -328,8 +346,9 @@
   </div>
 </footer>
 
-<script src="assets/site.js?v=14"></script>
+<script src="assets/site.js?v=16"></script>
 <script src="assets/features.js?v=8"></script>
+<script src="assets/home-oti.js?v=1"></script>
 <script src="assets/vsl.js?v=1"></script>
 </body>
 </html>
