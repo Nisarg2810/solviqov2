@@ -1402,8 +1402,8 @@ mark{background:linear-gradient(transparent 55%,rgba(232,137,12,.38) 55%,rgba(23
 .ho-chips span{font-size:14.5px;font-weight:500;color:var(--t2);padding:9px 16px;border-radius:99px;border:1px solid var(--line-2);background:var(--glass)}
 .ho-rows .wrap{display:flex;flex-direction:column;gap:110px}
 .ho-row{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.ho-row.flip .ho-copy{order:2}
-@media(max-width:900px){.ho-row{grid-template-columns:1fr;gap:60px}.ho-row.flip .ho-copy{order:0}.ho-rows .wrap{gap:90px}}
+.ho-row.mirror .ho-copy{order:2}
+@media(max-width:900px){.ho-row{grid-template-columns:1fr;gap:60px}.ho-row.mirror .ho-copy{order:0}.ho-rows .wrap{gap:90px}}
 .ho-copy h2{font-size:clamp(28px,3vw,40px);margin:18px 0 16px}
 .ho-copy p{font-size:18px;color:var(--t2);max-width:46ch;margin-bottom:18px}
 .ho-cardwrap{position:relative}
@@ -1551,3 +1551,20 @@ mark{background:linear-gradient(transparent 60%,rgba(232,137,12,.42) 60%,rgba(23
 .cta-art{height:260px;border-radius:20px;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 45%,rgba(232,137,12,.28),transparent 70%),radial-gradient(80% 80% at 80% 100%,rgba(76,125,255,.22),transparent 70%),var(--ink-900);border:1px solid var(--line-2)}
 .cta-art svg{width:150px;height:150px;overflow:visible;animation:otiFloat 4s ease-in-out infinite;filter:drop-shadow(0 20px 30px rgba(0,0,0,.45))}
 h1 .squig svg{bottom:-8px;height:12px}
+
+/* mobile fixes */
+html:not(.cur-on) .cur-ring,html:not(.cur-on) .cur-dot{display:none!important}
+@media(pointer:coarse){.cur-ring,.cur-dot{display:none!important}}
+@media(max-width:600px){
+  .panel.pad[style*="grid-template-columns:auto 1fr"]{grid-template-columns:1fr!important;gap:18px!important}
+  .ho-row{gap:44px}
+  .ho-cardwrap .mock{padding:18px}
+  .cal7{gap:4px}.cal7 span{padding:7px 0;font-size:11px}
+  .flow3{flex-wrap:wrap}
+  .hub6 span{padding:12px 4px;font-size:11px}
+  .fd{width:46px;height:62px}.fd b{font-size:36px}
+  .on-tabs button{padding:9px 14px;font-size:14px}
+  .ho-h1{font-size:clamp(34px,10vw,44px)}
+  .ac-k b{font-size:17px}.ac-list p{font-size:12.5px}
+}
+@media(max-width:600px){.d-tool{left:6px;font-size:20px}}

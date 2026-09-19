@@ -330,7 +330,7 @@
     var ba = (c.before && c.after) ? '<div class="ba">' +
       '<div class="panel before"><h4>Before</h4><ul>' + c.before.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>' +
       '<div class="panel after"><h4>After</h4><ul>' + c.after.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div></div>' : '';
-    return '<div class="panel flow-wrap has-ot">' + oti('peek', 'clipboard', 'left:-40px;bottom:-46px;width:100px') + '<div class="flow-head"><h3>How the work moves now</h3>' +
+    return '<div class="panel flow-wrap"><div class="flow-head"><h3>How the work moves now</h3>' +
       '<div class="flow-legend"><span><i style="background:var(--ink-600)"></i>Team step</span>' +
       '<span><i style="background:var(--signal-500)"></i>Automatic</span>' +
       '<span><i style="background:var(--amber-500)"></i>Decision point</span></div></div>' +
@@ -418,7 +418,7 @@
           '<div class="post-body"><h3>The problem</h3><p>' + esc(c.challenge) + '</p>' +
           '<h3>What we built</h3><p>' + esc(c.approach) + '</p>' +
           '<h3>Where it landed</h3><p>' + esc(c.outcome) + '</p></div>' +
-          '<div class="panel pad post-cta has-ot">' + oti('wave', 'phone', 'right:-20px;top:-76px;width:108px', null, true) + '<h3>Running the same operation?</h3>' +
+          '<div class="panel pad post-cta"><h3>Running the same operation?</h3>' +
           '<p style="color:var(--t2);margin-top:10px">Tell us what it actually looks like and we will tell you, honestly, if a sprint fixes it.</p>' +
           '<a class="btn btn-primary" style="margin-top:18px" href="contact.html">Book a scoping call<span class="shine"></span></a></div>';
       } else {
